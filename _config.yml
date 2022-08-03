@@ -1,1 +1,5 @@
-theme: jekyll-theme-minimal
+theme       : jekyll-theme-minimal
+title       : Sam Title
+description : Sam Description
+
+
