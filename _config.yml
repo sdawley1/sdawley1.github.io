@@ -2,4 +2,6 @@ theme       : jekyll-theme-minimal
 title       : Sam Title
 description : Sam Description
 
-
+# Remote plugins
+plugins:
+- jekyll-remote-theme
