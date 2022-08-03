@@ -1,6 +1,8 @@
-theme       : jekyll-theme-minimal
-title       : Sam Title
-description : Sam Description
+# Default parameters
+theme       : jekyll-theme-minimal # This is the theme DON'T CHANGE
+title       : Sam Dawley # This is the title above the logo
+description : Sam jfjfjjfjfjjffjjfjfjfjfjjffjjfjfjjfjjfjfjjfjfjjfjfjfjjfjfjjfjfjjfjfjjfj # This is the description below the logo
+logo        : /assets/img/me.png # Must be a .png file
 
 # Remote plugins
 plugins:
