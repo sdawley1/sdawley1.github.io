@@ -8,4 +8,4 @@ logo        : /assets/img/me.png # Must be a .png file
 plugins:
 - jekyll-remote-theme
 
-theme: jekyll-theme-merlot
+theme: jekyll-theme-minimal
