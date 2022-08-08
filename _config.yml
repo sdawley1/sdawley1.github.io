@@ -1,5 +1,5 @@
 # Default parameters
-theme       : jekyll-theme-merlot # This is the theme DON'T CHANGE
+theme       : jekyll-theme-minimal # This is the theme DON'T CHANGE
 title       : Sam Dawley # This is the title above the logo
 description : Personal Site # This is the description below the logo
 logo        : /assets/img/me.png # Must be a .png file
