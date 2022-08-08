@@ -7,3 +7,5 @@ logo        : /assets/img/me.png # Must be a .png file
 # Remote plugins
 plugins:
 - jekyll-remote-theme
+
+theme: jekyll-theme-merlot
