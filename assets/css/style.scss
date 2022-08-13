@@ -43,6 +43,29 @@ kbd {
   vertical-align: middle; 
 }
 
+// Centering
+// navbar
+#navbar-center {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+// social media icons
+#media-center {
+  width: 50%;
+  margin: 10;
+  display: flex;
+}
+// Figure captions
+figure {
+  display: inline-block;
+  text-align: center;
+}
+figure figcaption {
+  // border: 1px dotted blue;
+  text-align: center;
+}
+
 // List styling
 ul {
   list-style-type: none;
@@ -59,14 +82,17 @@ h4 { display: inline; }
 hr { border: 0; background: #e5e5e5; height: 1px; margin: 0 0 5px; }
 
 // Changing paragraph margins
-p { margin: 0 0 10px; font-size: medium;}
+p { 
+  margin: 0 0 10px;
+  font-size: medium;
+}
 // Changing fontsize of small text
 small { font-size: 13px; }
 
 // Images
 // Still trying to get circular mask    
 img {
-    border-radius: 100%;
+    // border-radius: 100%;
     vertical-align: middle;
     border-style: none;
   }
@@ -88,17 +114,20 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 2.5rem;
-    width: 2.5rem;
+    height: 3.5rem;
+    width: 3.5rem;
     // background-color: ;
     color: #267CB9;
     border-radius: 80%;
-    font-size: 1.5rem;
-    margin-right: 1.5rem;
+    font-size: 2.5rem;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    margin-left: 20%;
   }
-  .social-icons .social-icon:last-child {
-    margin-right: 0;
-  }
+  // .social-icons .social-icon:last-child {
+  //   margin-left: 2rem;
+  //   margin-right: 2rem;
+  // }
   .social-icons .social-icon:hover {
     background-color: #c9c7c7;
   }

@@ -236,6 +236,14 @@ body { background-color: #fff; padding: 50px; font: 14px/1.5 "Noto Sans", "Helve
 
 kbd { background-color: #fafbfc; border: 1px solid #c6cbd1; border-bottom-color: #959da5; border-radius: 3px; box-shadow: inset 0 -1px 0 #959da5; color: #444d56; display: inline-block; font-size: 11px; line-height: 10px; padding: 3px 5px; vertical-align: middle; }
 
+#navbar-center { width: 100%; margin: 0 auto; text-align: center; }
+
+#media-center { width: 50%; margin: 10; display: flex; }
+
+figure { display: inline-block; text-align: center; }
+
+figure figcaption { text-align: center; }
+
 ul { list-style-type: none; }
 
 h1 { font-style: oblique; }
@@ -250,15 +258,13 @@ p { margin: 0 0 10px; font-size: medium; }
 
 small { font-size: 13px; }
 
-img { border-radius: 100%; vertical-align: middle; border-style: none; }
+img { vertical-align: middle; border-style: none; }
 
 .img-fluid { max-width: 100%; height: auto; }
 
 .img-thumbnail { padding: 0.25rem; background-color: #fff; border: 1px solid #dee2e6; border-radius: 0.1rem; max-width: 50%; height: auto; }
 
-.social-icons .social-icon { display: inline-flex; align-items: center; justify-content: center; height: 2.5rem; width: 2.5rem; color: #267CB9; border-radius: 80%; font-size: 1.5rem; margin-right: 1.5rem; }
-
-.social-icons .social-icon:last-child { margin-right: 0; }
+.social-icons .social-icon { display: inline-flex; align-items: center; justify-content: center; height: 3.5rem; width: 3.5rem; color: #267CB9; border-radius: 80%; font-size: 2.5rem; margin-top: 0%; margin-bottom: 0%; margin-left: 20%; }
 
 .social-icons .social-icon:hover { background-color: #c9c7c7; }
 
