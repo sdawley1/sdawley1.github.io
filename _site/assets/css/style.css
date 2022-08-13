@@ -246,7 +246,7 @@ figure figcaption { text-align: center; }
 
 ul { list-style-type: none; }
 
-h1 { font-style: oblique; }
+h1 { font-style: normal; }
 
 h4 { color: #222; margin: 0 0 20px; }
 
@@ -264,7 +264,11 @@ img { vertical-align: middle; border-style: none; }
 
 .img-thumbnail { padding: 0.25rem; background-color: #fff; border: 1px solid #dee2e6; border-radius: 0.1rem; max-width: 50%; height: auto; }
 
-.social-icons .social-icon { display: inline-flex; align-items: center; justify-content: center; height: 3.5rem; width: 3.5rem; color: #267CB9; border-radius: 80%; font-size: 2.5rem; margin-top: 0%; margin-bottom: 0%; margin-left: 20%; }
+.social-icons .social-icon { display: inline-flex; align-items: center; justify-content: center; height: 3.5rem; width: 3.5rem; color: #267CB9; border-radius: 100%; font-size: 2.5rem; margin-right: 1.5rem; }
+
+.social-icons .social-icon:first-child { margin-left: 1.6rem; }
+
+.social-icons .social-icon:last-child { margin-right: 0rem; }
 
 .social-icons .social-icon:hover { background-color: #c9c7c7; }
 
