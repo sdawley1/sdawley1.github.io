@@ -248,6 +248,8 @@ ul { list-style-type: none; }
 
 h1 { font-style: normal; }
 
+h3 { padding-bottom: 0.05rem; }
+
 h4 { color: #222; margin: 0 0 20px; }
 
 h4 { display: inline; }
