@@ -260,6 +260,8 @@ p { margin: 0 0 10px; font-size: medium; }
 
 small { font-size: 13px; }
 
+.frame { border-color: #267CB9; border-style: solid; border-width: 2px; }
+
 img { vertical-align: middle; border-style: none; }
 
 .img-fluid { max-width: 100%; height: auto; }

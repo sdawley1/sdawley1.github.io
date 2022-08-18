@@ -93,7 +93,13 @@ p {
 small { font-size: 13px; }
 
 // Images
-// Still trying to get circular mask    
+// Still trying to get circular mask 
+.frame {
+  border-color: #267CB9;
+  border-style: solid;
+  border-width: 2px;
+}
+
 img {
     // border-radius: 100%; CIRCULAR MASK FOR IMAGE OF ME
     vertical-align: middle;
