@@ -260,11 +260,20 @@ p { margin: 0 0 10px; font-size: medium; }
 
 small { font-size: 13px; }
 
-.frame { border-color: #267CB9; border-style: solid; border-width: 2px; }
+.frame { border-color: #267CB9; border-style: solid; border-width: 3px; }
 
-img { vertical-align: middle; border-style: none; }
+.small-frame { border-color: #267CB9; border-style: solid; border-width: 3px; }
+
+.container { width: 200px; height: 120px; }
+
+/* Resize images */
+.container img { width: 100%; height: auto; }
+
+img { vertical-align: middle; border-style: none; object-fit: cover; }
 
 .img-fluid { max-width: 100%; height: auto; }
+
+.img-small { width: auto; height: 80%; }
 
 .img-thumbnail { padding: 0.25rem; background-color: #fff; border: 1px solid #dee2e6; border-radius: 0.1rem; max-width: 50%; height: auto; }
 
