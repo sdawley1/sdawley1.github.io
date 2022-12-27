@@ -1,0 +1,23 @@
+# main links links
+main:
+  # - title: "Publications" # Formerly "Publications" # See _publications
+  #   url: /publications/
+
+  # - title: "Presentations" # Formerly "Talks" # See _talks
+  #   url: /talks/
+
+  - title: "Projects" # Formerly "Blog Posts" # See _posts
+    url: /year-archive/
+
+  - title: "Research" # Formerly "Teaching" # See _teaching
+    url: /teaching/
+
+  - title: "Volunteering" # Formerly "Portfolio" # See _pages/portfolio.md
+    url: /portfolio/
+      
+  - title: "CV"
+    url: /files/cv.pdf # Permalink to PDF of CV
+    
+  # NAVIGATE HERE MANUALLY TO SEE GUIDE FOR POSTS
+  # - title: "Guide"
+  #   url: /markdown/

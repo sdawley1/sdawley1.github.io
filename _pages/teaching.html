@@ -1,0 +1,15 @@
+---
+layout: archive
+title: "Research Experience"
+permalink: /teaching/
+author_profile: true
+---
+
+{% include base_path %}
+
+A complete and updated (as of 12/2022) summary of my research experience can be found within 
+this <a href="../files/Research Summary.pdf">PDF</a>. Below are links to descriptions of the same projects.
+
+{% for post in site.teaching reversed %}
+  {% include archive-single_research.html %}
+{% endfor %}
