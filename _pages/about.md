@@ -16,7 +16,7 @@ About
 =====
 I am an undergraduate student at Johns Hopkins University studying Chemistry and Applied Mathematics & Statistics. 
 
-My undergraduate research has focused on physical organic chemistry and electronic structure theory. I worked on the former with [Prof. J.D. Tovar](https://sites.krieger.jhu.edu/tovar-group/) while studying cycloparaphenylenes and borepins using a mix of synthetic and compuational techniques. The latter was done with [Prof. Lan Cheng](https://sites.krieger.jhu.edu/cheng/) using coupled-cluster theory.
+My undergraduate research has focused on physical organic chemistry and electronic structure theory. I worked on the former with [Prof. J.D. Tovar](https://sites.krieger.jhu.edu/tovar-group/) while studying cycloparaphenylenes and borepins using a mix of synthetic and computational techniques. The latter was done with [Prof. Lan Cheng](https://sites.krieger.jhu.edu/cheng/) using coupled-cluster theory.
 
 In my free time I enjoy swimming, biking, running, and [reading](https://www.goodreads.com/user/show/151908364-sam-dawley) (in no particular order) and have been lucky enough to swim, bike, and run all while raising money for [Best Buddies International](https://www.bestbuddies.org/). Follow me on [Strava](https://www.strava.com/dashboard) to see all the fun stuff I've been up to recently (and have ever been up to).
 
