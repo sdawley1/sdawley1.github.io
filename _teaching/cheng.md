@@ -10,17 +10,14 @@ permalink: /teaching/cheng
 venue: "Department of Chemistry, Johns Hopkins University" # Location
 date: 2022-01-01
 location: "Baltimore, MD"
-excerpt: "Studied electronic structure theory and studied coupled-cluster methods to investigate compounds in opto-electronic traps at ultracold temperatures."
+excerpt: "Studied electronic structure theory coupled-cluster methods to investigate compounds in opto-electronic traps at ultracold temperatures."
 ---
 
 The overarching goal of my research with Prof. Lan Cheng involves investigating the properties of ionic and molecular diatoms in laser-cooled, ultracold opto-electronic traps. We have used coupled-cluster methods with the CFOUR computational suite to calculate the lifetimes and polarizabilities of such compounds and collaborated with experimentalists in the Doyle Group at Harvard to corroborate results. The strong agreement between our results and those determined experimentally comes from our treatment of relativistic effects, which grow increasingly important as the trapped atoms grow heavier. Some achievements of my research include:
-- A publication being prepared for peer review:
+- An article submitted for peer review:
 
-C. Hallas, N. B. Vilas, L. Anderegg, P. Robichaud, A. Winnicki, **S. Dawley**, C. Zhang, L. Cheng, J. M. Doyle “Lifetimes
-for polyatomic molecules in an optical dipole trap” *in preparation*, Phys. Rev. A (2022).
+N. B. Vilas; C. Hallas; L. Anderegg; P. Robichaud; C. Zhang; **S. Dawley**; L. Cheng; J. M. Doyle; [Blackbody thermalization and vibrational lifetimes of trapped polyatomic molecules](https://arxiv.org/abs/2303.09424). *submitted*, (2023).
 
-- Benchmark calculations of spin-orbit coupling in heavy-element molecules comparing perturbative and variational treatments. This work is currently submitted for presentation at the meeting of the American Chemical Society in the Spring:
+- Benchmark calculations of spin-orbit coupling in heavy-element molecules comparing perturbative and variational treatments. This work was presented to the American Chemical Society at the Spring 2023 Meeting in Indianapolis:
 
-**S. Dawley**; C. Zhang; X. Zheng; L. Cheng. “Benchmark calculations of spin-orbit coupling within exact
-two-component theory: Comparison of perturbative and variational treatments.” *in preparation* for the National
-Meeting of the ACS , Indianapolis, IN, 2023.
+**S. Dawley**; C. Zhang; X. Zheng; L. Cheng. “Blackbody Thermalization and Vibrational Lifetimes of Trapped Polyatomic Molecules.” Presented at the National Meeting of the ACS, Indianapolis, IN, 2023.

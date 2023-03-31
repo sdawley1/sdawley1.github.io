@@ -5,7 +5,7 @@ PI: "Dr. David Elbert, Dr. Tyrel McQueen & Dr. Apurva Mehta"
 times: "June 2022 - August 2022"
 #
 collection: teaching
-type: "Dr. David Elbert, Dr. Tyrel McQueen & Dr. Apurva Mehta" # PIs 
+type: "Dr. David Elbert, Dr. Tyrel McQueen, & Dr. Apurva Mehta" # PIs 
 permalink: /teaching/paradim
 venue: "Platform for the Accelerated Realization, Analysis, and Discovery of Interface Materials" # Location
 date: 2022-06-01
