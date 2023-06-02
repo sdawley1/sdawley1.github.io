@@ -8,17 +8,19 @@ redirect_from:
   - /about.html
 ---
 
-News!
-=====
-Next year I'll have the absolute joy of running in the 127th Boston Marathon! Even better is the fact that I'll get to be a part of a team representing and fundraising for Best Buddies International (linked below). I, however, am a college student and need all the help I can get fundraising. If you'd like to donate (any amount helps!) you can visit my [GivenGain](https://www.givengain.com/ap/sam-dawley-raising-funds-for-best-buddies-international-inc/#timeline) page. Alternatively, you can Venmo me (@Sam-Dawley) with a description of "Best Buddies" (or something along those lines) and I will donate the same amount in your name. Anyone who donates $5 or more will get a handwritten thank you card from me!
-
 About
 =====
-I am an undergraduate student at Johns Hopkins University studying Chemistry and Applied Mathematics & Statistics. 
+Previously an undergraduate student at Johns Hopkins University with BAs in Chemistry and Applied Mathematics & Statistics. 
 
-My undergraduate research has focused on physical organic chemistry and electronic structure theory. I worked on the former with [Prof. J.D. Tovar](https://sites.krieger.jhu.edu/tovar-group/) while studying cycloparaphenylenes and borepins using a mix of synthetic and computational techniques. The latter was done with [Prof. Lan Cheng](https://sites.krieger.jhu.edu/cheng/) using coupled-cluster theory.
+My undergraduate research focused on physical organic chemistry and electronic structure theory. I worked on the former with [Prof. J.D. Tovar](https://sites.krieger.jhu.edu/tovar-group/) while studying cycloparaphenylenes and borepins using a mix of synthetic and computational techniques. The latter was done with [Prof. Lan Cheng](https://sites.krieger.jhu.edu/cheng/) using coupled-cluster theory.
 
 In my free time I enjoy swimming, biking, running, and [reading](https://www.goodreads.com/user/show/151908364-sam-dawley) (in no particular order) and have been lucky enough to swim, bike, and run all while raising money for [Best Buddies International](https://www.bestbuddies.org/). Follow me on [Strava](https://www.strava.com/dashboard) to see all the fun stuff I've been up to recently (and have ever been up to).
+
+News
+=====
+* **(6/2023)** My research in the Cheng Group at Hopkins was published in *Physical Review A*! check out the paper [here](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.107.062802).
+
+* **(4/2023)** I'm running the 127th Boston Marathon! Check out my results [here](https://results.baa.org/2023/?content=detail&fpid=search&pid=search&idp=9TGHS6FF1817C6&lang=EN_CAP&event=R&event_main_group=runner&pidp=start&search%5Bname%5D=dawley&search_event=R).
 
 <!-- ![Falmouth Road Race](../files/best_buddies_group.JPG)
 

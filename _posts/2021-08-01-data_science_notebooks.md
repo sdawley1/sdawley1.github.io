@@ -1,10 +1,12 @@
 ---
 title: "Chemical and Materials Science Data Analysis Tools"
+place: "Chemical and Materials Science Data Analysis Tools"
 collection: posts
 type: "type" # PIs
 permalink: /year-archive/2021-08-01-data_science_notebooks/
 venue: "Venue" # FULL LOCATION
 date: 2021-08-01
+include_header: true
 location: "Location"
 excerpt: "Some data science projects I did for a class."
 header:

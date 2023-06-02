@@ -14,9 +14,9 @@ excerpt: "Studied electronic structure theory coupled-cluster methods to investi
 ---
 
 The overarching goal of my research with Prof. Lan Cheng involves investigating the properties of ionic and molecular diatoms in laser-cooled, ultracold opto-electronic traps. We have used coupled-cluster methods with the CFOUR computational suite to calculate the lifetimes and polarizabilities of such compounds and collaborated with experimentalists in the Doyle Group at Harvard to corroborate results. The strong agreement between our results and those determined experimentally comes from our treatment of relativistic effects, which grow increasingly important as the trapped atoms grow heavier. Some achievements of my research include:
-- An article submitted for peer review:
+- A peer-reviewed article published by the APS:
 
-N. B. Vilas; C. Hallas; L. Anderegg; P. Robichaud; C. Zhang; **S. Dawley**; L. Cheng; J. M. Doyle; [Blackbody thermalization and vibrational lifetimes of trapped polyatomic molecules](https://arxiv.org/abs/2303.09424). *submitted*, (2023).
+N. B. Vilas; C. Hallas; L. Anderegg; P. Robichaud; C. Zhang; **S. Dawley**; L. Cheng; J. M. Doyle; [Blackbody thermalization and vibrational lifetimes of trapped polyatomic molecules](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.107.062802). *Phys. Rev. A* **107**, 062802 (2023).
 
 - Benchmark calculations of spin-orbit coupling in heavy-element molecules comparing perturbative and variational treatments. This work was presented to the American Chemical Society at the Spring 2023 Meeting in Indianapolis:
 

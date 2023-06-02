@@ -1,10 +1,12 @@
 ---
 title: "Aerodynamics in Julia"
+place: "Aerodynamics in Julia"
 collection: posts
 type: "type" # PIs
 permalink: /year-archive/2022-01-01-aero_julia/
 venue: "Venue" # FULL LOCATION
 date: 2022-01-01
+include_header: true
 location: "Location"
 excerpt: "Some introductory notebooks to aerodynamics, written in Julia."
 header:

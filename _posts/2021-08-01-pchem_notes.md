@@ -1,11 +1,12 @@
 ---
 title: "Physical Chemistry Notes" # title
-#
+place: "Physical Chemistry Notes" # title
 collection: posts
 type: "type" # PIs
 permalink: /year-archive/2021-08-01-pchem_notes
 venue: "Venue" # FULL LOCATION
 date: 2021-08-01
+include_header: true
 location: "Location"
 excerpt: "An odyssey through my first experience taking physical chemistry."
 header:

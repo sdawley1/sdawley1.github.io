@@ -1,9 +1,11 @@
 ---
 title: "Intro to Probability Notes"
+place: "Intro to Probability Notes"
 collection: posts
 type: "type" # PIs
 permalink: /year-archive/2021-01-01-prob_notes/
 venue: "Venue" # FULL LOCATION
+include_header: true
 date: 2021-08-01
 location: "Location"
 excerpt: "An odyssey through my experience taking an intro course in probability theory."
