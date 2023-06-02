@@ -8,7 +8,7 @@ venue: "Venue" # FULL LOCATION
 include_header: true
 date: 2021-08-01
 location: "Location"
-excerpt: "An odyssey through my experience taking an intro course in probability theory."
+excerpt: "The Descent to Pandemonium: An odyssey through my experience taking an intro course in probability theory."
 ---
 
 [[PDF](../../files/Intro%20Prob%20Notes.pdf)]

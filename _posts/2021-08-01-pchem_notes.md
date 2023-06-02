@@ -8,7 +8,7 @@ venue: "Venue" # FULL LOCATION
 date: 2021-08-01
 include_header: true
 location: "Location"
-excerpt: "An odyssey through my first experience taking physical chemistry."
+excerpt: "An odyssey through my first experience taking physical chemistry and the crippling obsession that followed."
 header:
     teaser: "../files/radial_dists.png"
 ---

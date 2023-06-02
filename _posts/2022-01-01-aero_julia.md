@@ -8,12 +8,13 @@ venue: "Venue" # FULL LOCATION
 date: 2022-01-01
 include_header: true
 location: "Location"
-excerpt: "Some introductory notebooks to aerodynamics, written in Julia."
+excerpt: "A collection of jupyter notebooks exploring the theory of aerodynamics, written in Julia."
 header:
     teaser: "../files/source_sink_pairs.png"
 ---
 
-[[GitHub](https://github.com/sdawley1/aero-julia)]
+<!-- [[GitHub](https://github.com/sdawley1/aero-julia)] -->
+[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=sdawley1&repo=aero-julia)](https://github.com/sdawley1/aero-julia)
 
 I'm always trying to learn new programming languages (I think I'm gonna go for C++ next) and so when I saw a set of Jupyter notebooks for learning aerodynamics, written in Python, I figured I could do a better job at creating the visuals in those notebooks while learning another language in the process. Granted, that other language is practically a twin of Python. Nonetheless, it was fun! I still need to finish writing the rest of the notebooks, only about half are converted to Julia from the original source.
 

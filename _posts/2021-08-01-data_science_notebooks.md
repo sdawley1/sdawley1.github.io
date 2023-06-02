@@ -8,7 +8,7 @@ venue: "Venue" # FULL LOCATION
 date: 2021-08-01
 include_header: true
 location: "Location"
-excerpt: "Some data science projects I did for a class."
+excerpt: "Some jupyter notebooks containing data science tools with applications in chemistry and materials science, originally written for a class I took in college."
 header:
     teaser: "../files/sunscreen_graph.png"
 ---

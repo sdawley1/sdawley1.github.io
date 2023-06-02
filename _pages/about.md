@@ -10,7 +10,7 @@ redirect_from:
 
 About
 =====
-Previously an undergraduate student at Johns Hopkins University with BAs in Chemistry and Applied Mathematics & Statistics. 
+Previously an undergraduate student at Johns Hopkins University with degrees in Chemistry and Applied Mathematics & Statistics. 
 
 My undergraduate research focused on physical organic chemistry and electronic structure theory. I worked on the former with [Prof. J.D. Tovar](https://sites.krieger.jhu.edu/tovar-group/) while studying cycloparaphenylenes and borepins using a mix of synthetic and computational techniques. The latter was done with [Prof. Lan Cheng](https://sites.krieger.jhu.edu/cheng/) using coupled-cluster theory.
 
@@ -18,7 +18,7 @@ In my free time I enjoy swimming, biking, running, and [reading](https://www.goo
 
 News
 =====
-* **(6/2023)** My research in the Cheng Group at Hopkins was published in *Physical Review A*! check out the paper [here](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.107.062802).
+* **(6/2023)** My research in the Cheng Group at Hopkins was published in *Physical Review A*! Check out the paper [here](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.107.062802).
 
 * **(4/2023)** I'm running the 127th Boston Marathon! Check out my results [here](https://results.baa.org/2023/?content=detail&fpid=search&pid=search&idp=9TGHS6FF1817C6&lang=EN_CAP&event=R&event_main_group=runner&pidp=start&search%5Bname%5D=dawley&search_event=R).
 

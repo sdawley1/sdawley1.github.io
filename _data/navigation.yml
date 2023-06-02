@@ -6,11 +6,11 @@ main:
   # - title: "Presentations" # Formerly "Talks" # See _talks
   #   url: /talks/
 
-  - title: "Projects" # Formerly "Blog Posts" # See _posts
-    url: /year-archive/
-
   - title: "Research" # Formerly "Teaching" # See _teaching
     url: /teaching/
+    
+  - title: "Projects" # Formerly "Blog Posts" # See _posts
+    url: /year-archive/
 
   # - title: "Volunteering" # Formerly "Portfolio" # See _pages/portfolio.md
   #   url: /portfolio/
