@@ -12,8 +12,8 @@ main:
   - title: "Research" # Formerly "Teaching" # See _teaching
     url: /teaching/
 
-  - title: "Volunteering" # Formerly "Portfolio" # See _pages/portfolio.md
-    url: /portfolio/
+  # - title: "Volunteering" # Formerly "Portfolio" # See _pages/portfolio.md
+  #   url: /portfolio/
       
   - title: "CV"
     url: /files/cv.pdf # Permalink to PDF of CV
