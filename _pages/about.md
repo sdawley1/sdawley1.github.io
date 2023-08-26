@@ -10,6 +10,8 @@ redirect_from:
 
 About
 =====
+Currently a graduate research assistant at Princeton University studying computational and theoretical chemistry with applications in organic and inorganic materials.
+
 Previously an undergraduate student at Johns Hopkins University with degrees in Chemistry and Applied Mathematics & Statistics. 
 
 My undergraduate research focused on physical organic chemistry and electronic structure theory. I worked on the former with [Prof. J.D. Tovar](https://sites.krieger.jhu.edu/tovar-group/) while studying cycloparaphenylenes and borepins using a mix of synthetic and computational techniques. The latter was done with [Prof. Lan Cheng](https://sites.krieger.jhu.edu/cheng/) using coupled-cluster theory.
