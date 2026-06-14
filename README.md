@@ -1,11 +1,13 @@
-# [The Online Resume That Lands Interviews](https://github.com/HugoBlox/hugo-theme-resume)
+# [The Online Resume That Lands Interviews]()
 
-[![Screenshot](.github/preview.png)](https://hugoblox.com/templates/resume?utm_source=github&utm_medium=readme&utm_content=preview)
+# Personal Site
+
+Forked from [Hugo template](https://github.com/HugoBlox/hugo-theme-resume).
 
 <!-- TODO: Replace with a short demo video showing Hugo Chat generating a resume page -->
 <!-- https://github.com/user-attachments/assets/REPLACE_ME -->
 
-<h1 align="center">Your Resume, Always Live And Always Current</h1>
+<!-- <h1 align="center">Your Resume, Always Live And Always Current</h1>
 
 <p align="center">
   <strong>Stop emailing outdated PDFs.</strong><br/>
@@ -232,6 +234,6 @@ Yes. No questions asked.
 
 [**❤️ Sponsor on GitHub**](https://github.com/sponsors/gcushen) | [**🏢 Become a Partner**](https://github.com/sponsors/gcushen)
 
----
+--- -->
 
 MIT © 2016-present [**Lore Labs**](https://lore.tech/?utm_source=github&utm_medium=readme)
