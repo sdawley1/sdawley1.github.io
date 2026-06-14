@@ -1,8 +1,6 @@
-# [The Online Resume That Lands Interviews]()
-
 # Personal Site
 
-Forked from [Hugo template](https://github.com/HugoBlox/hugo-theme-resume).
+Forked from [HugoBlox](https://github.com/HugoBlox/hugo-theme-resume).
 
 <!-- TODO: Replace with a short demo video showing Hugo Chat generating a resume page -->
 <!-- https://github.com/user-attachments/assets/REPLACE_ME -->
