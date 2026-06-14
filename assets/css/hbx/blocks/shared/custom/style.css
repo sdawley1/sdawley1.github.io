@@ -1,0 +1,9 @@
+/* Render all résumé action buttons (the "Learn more"-style links under the
+   experience and education entries) in bold + italic. These anchors share a
+   fixed Tailwind class signature emitted by the resume-experience block, so
+   every such button — current and future — is covered. The class list is more
+   specific than Tailwind's `.font-medium`, so the bold weight wins. */
+a.inline-flex.items-center.gap-2.text-sm.font-medium.text-gray-500 {
+  font-weight: 700;
+  font-style: italic;
+}

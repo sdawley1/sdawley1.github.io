@@ -33,29 +33,34 @@ experience:
     end: #2022-08-01
     summary: |
       - Designed and implemented novel scalable CPU and GPU parallelized algorithms in HPC environments for many-body physics simulations.
+    button:
+      text: "Related: S. J. Dawley and S. Torquato, Phys. Rev. E, 112, 045310 (2025)"
+      url: "https://journals.aps.org/pre/abstract/10.1103/9wbz-h7t4"
 
   - role: Research Intern
     org: Platform for the Accelerated Realization, Analysis, and Discovery of Interface Materials
     start: 2022-05-01
     end: 2022-08-01
     summary: |
-      - Worked with Dr. David Elbert and [Prof. Tyrel McQueen](https://occamy.chemistry.jhu.edu) to advance strategies in real-time data analysis and autonomous experimental control using statistical learning algorithms.
+      With Dr. David Elbert and [Prof. Tyrel McQueen](https://occamy.chemistry.jhu.edu), advanced strategies for real-time data analysis and autonomous experimental control using statistical learning algorithms.
 
-  - role: Research Technician
+  - role: Laboratory Technician
     org: Massachusetts General Hospital
     start: 2020-06-01
     end: 2020-09-01
     summary: |
-      - Studied response of airway epithelium cells to lung inflammation and scarring for an increased understanding of idiopathic pulmonary fibrosis.
-      - Developed algorithm to analyze the spatial distribution of cultured cells to visualize inflammation patterning.
+      With Dr. Tristan Kooistra and Dr. Benjamin Medoff, studied response of airway epithelium cells to lung inflammation and scarring for an increased understanding of idiopathic pulmonary fibrosis. Developed an algorithm to analyze the spatial distribution of cultured cells to visualize inflammation patterning.
 
   - role: Undergraduate Research Assistant
     org: Johns Hopkins University
     start: 2020-01-01
     end: 2023-08-01
     summary: |
-      - Quantified internal state dynamics of light- and heavy-metal diatoms using coupled-cluster theory for modeling vibrational lifetimes of optically-trapped molecules subject to blackbody radiation [Vilas, et al., Blackbody thermalization and vibrational lifetimes of trapped polyatomic molecules, *Phys. Rev. A.*, **107**, 062802 (2023)].
+      - Quantified internal state dynamics of light- and heavy-metal diatoms using coupled-cluster theory for modeling vibrational lifetimes of optically-trapped molecules subject to blackbody radiation.
       - Computationally modeled organic, aromatic cycloparaphenylenes using density-functional theory to explore their novel, hybrid radial-linear conjugation pathways; developed a Python package to calculate the nucleus independent chemical shifts for quantifying the strength of electron delocalization in aromatic molecules.
+    button:
+      text: "Related: Vilas, et al., Phys. Rev. A, 107, 062802 (2023)"
+      url: "https://journals.aps.org/pra/abstract/10.1103/PhysRevA.107.062802"
 
   # - role: Backend Software Engineer
   #   org: X
@@ -76,9 +81,6 @@ education:
     end: #2029-12-31
     summary: |
       Advised by [Prof. Salvatore Torquato](https://torquato.princeton.edu) in the Complex Materials and Theory Group.
-    button:
-      text: "Google Scholar"
-      url: "https://example.com"
 
   # UNDERGRAD
   - degree: B.A. in Chemistry and Applied Mathematics & Statistics
@@ -87,8 +89,8 @@ education:
     end: 2023-05-31
     summary: |
       Advised by [Prof. Lan Cheng](https://sites.krieger.jhu.edu/cheng/) and [Prof. J. D. Tovar](https://sites.krieger.jhu.edu/tovar-group/).
+      - 3+ years experience assisting teaching in courses spanning subjects in chemistry and applied mathematics.
       - In 2023, recipient of the [American Chemical Society Undergraduate Award](https://acsmaryland.org/awards/student-awards/) by the Maryland Section of the American Chemical Society.
-      - 3+ years experience assisting teaching in courses across Departments of Chemistry and Applied Mathematics & Statistics.
 
 # ----- SKILLS -----
 skills:
