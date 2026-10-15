@@ -291,3 +291,20 @@ hugoblox:
     # Affiliate referral code for rewards program
     # Join affiliate program: https://hugoblox.com/affiliates
     affiliate_code: ""
+
+# ══════════════════════════════════════════════════════════════════════════════
+# SITE BACKGROUND (custom; rendered by layouts/_partials/hooks/body-end/page-background.html)
+# layers: any of field | relax | rings | aurora (stack in order; "none" for nothing)
+#   field  - driven nonequilibrium hyperuniform particle field (canvas)
+#   relax  - lattice/gas -> relaxation -> hyperuniform cycle (canvas)
+#   rings  - structure-factor rings illustration behind the hero (SVG)
+#   aurora - drifting colour orbs in the triadic accents (CSS only)
+# motion: subtle | medium | lively      interact: cursor repulsion on pointer devices
+# waves: clicking/tapping the page emits an acoustic pulse that travels through the field
+# Preview and compare live: open the site with ?bglab appended to the URL.
+# ══════════════════════════════════════════════════════════════════════════════
+site_background:
+  layers: ["field"]
+  motion: medium
+  interact: true
+  waves: true

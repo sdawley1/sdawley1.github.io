@@ -7,3 +7,4 @@ Personal site of Sam Dawley, built with [HugoBlox](https://hugoblox.com) (Resume
 - **Site settings** are in `config/_default/` (`params.yaml` for theme and header, `menus.yaml` for the anchor nav).
 - **PDFs**: LaTeX sources for the CV and the one-page résumé are in `cv/`. Run `cv/build.sh` (needs [tectonic](https://tectonic-typesetting.github.io)) to regenerate `static/uploads/Dawley_CV.pdf` and `static/uploads/Dawley_Resume.pdf`.
 - **Local preview**: `pnpm install` once, then `hugo server`.
+- **Background**: `site_background` in `config/_default/params.yaml` picks the animated layers (`field`, `relax`, `rings`, `aurora`), motion level (`subtle`, `medium`, `lively`), cursor interaction, and click-triggered acoustic waves. Code in `assets/js/bg/`. Open the site with `?bglab` to compare layers live and copy the config snippet; `?bg=field,aurora` previews a one-off combination.
