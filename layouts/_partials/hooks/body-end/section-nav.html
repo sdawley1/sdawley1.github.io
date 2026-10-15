@@ -1,0 +1,74 @@
+{{- /* Floating section navigator for the single-page site.
+       Desktop (>= 1280px): vertical rail fixed to the left, labels always visible.
+       Smaller screens: horizontally scrollable pill bar fixed to the bottom.
+       Sections come from `main` in config/_default/menus.yaml; document links from `downloads`.
+       Styles live in assets/css/custom.css (.hb-secnav*). */ -}}
+{{- if eq .Type "landing" -}}
+<nav class="hb-secnav" aria-label="Page sections">
+  <ul class="hb-secnav-list">
+    {{- range site.Menus.main }}
+    <li><a class="hb-secnav-link" href="{{ .URL }}" data-target="{{ strings.TrimPrefix "#" .URL }}"><span class="hb-secnav-dot" aria-hidden="true"></span><span class="hb-secnav-label">{{ .Name }}</span></a></li>
+    {{- end }}
+    {{- with site.Menus.downloads }}
+    <li class="hb-secnav-sep" role="separator" aria-hidden="true"></li>
+    {{- range . }}
+    <li><a class="hb-secnav-link hb-secnav-download" href="{{ .URL | relURL }}" target="_blank" rel="noopener"><svg class="hb-secnav-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg><span class="hb-secnav-label">{{ .Name }}</span></a></li>
+    {{- end }}
+    {{- end }}
+  </ul>
+</nav>
+<script>
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.hb-secnav-link[data-target]'));
+  if (!links.length) return;
+  var byId = {};
+  var sections = [];
+  links.forEach(function (a) {
+    var el = document.getElementById(a.getAttribute('data-target'));
+    if (el) { byId[el.id] = a; sections.push(el); }
+  });
+  function setActive(id) {
+    links.forEach(function (a) {
+      var on = a.getAttribute('data-target') === id;
+      a.classList.toggle('is-active', on);
+      if (on) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
+      if (on && a.scrollIntoView && window.matchMedia('(max-width: 1279px)').matches) {
+        var list = a.closest('.hb-secnav-list');
+        var r = a.getBoundingClientRect(), lr = list.getBoundingClientRect();
+        if (r.left < lr.left || r.right > lr.right) {
+          list.scrollTo({ left: a.offsetLeft - (lr.width - r.width) / 2, behavior: 'smooth' });
+        }
+      }
+    });
+  }
+  // The active section is the last one whose top has passed a line ~35% down the viewport.
+  function update() {
+    var line = window.innerHeight * 0.35;
+    var current = sections[0];
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i].getBoundingClientRect().top <= line) current = sections[i];
+    }
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+      current = sections[sections.length - 1];
+    }
+    if (current) setActive(current.id);
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(function () { update(); ticking = false; }); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  links.forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var el = document.getElementById(a.getAttribute('data-target'));
+      if (!el) return;
+      e.preventDefault();
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', '#' + el.id);
+      setActive(el.id);
+    });
+  });
+  update();
+})();
+</script>
+{{- end -}}

@@ -1,0 +1,358 @@
+/* Site-specific styles. Loaded after the theme CSS (see HugoBlox site_head.html). */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Give each landing section breathing room when jumped to via the navigator. */
+.hbb-section[id] {
+  scroll-margin-top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* ------------------------------------------------------------------ */
+/* CV columns block (layouts/_partials/hbx/blocks/cv-columns/block.html) */
+/* Three timelines with a triadic accent scheme, 120° apart in hue:       */
+/*   Experience  = deep blue           (~215°)                           */
+/*   Education   = magenta/rose        (~335°)                           */
+/*   Published   = dark green          (~95°)                            */
+/* ------------------------------------------------------------------ */
+.cv-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 3rem 2.5rem;
+  align-items: start;
+}
+@media (min-width: 1024px) {
+  .cv-columns { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+.cv-col { display: flex; flex-direction: column; gap: 3.5rem; min-width: 0; }
+
+/* Hues 215° / 335° / 95° (120° apart). Light mode uses deep, saturated tones;
+   dark mode lightens each one just enough to keep contrast on the dark surface. */
+.cv-accent-experience {
+  --cv-accent: hsl(215 85% 34%);
+  --cv-accent-strong: hsl(215 88% 26%);
+}
+.cv-accent-education {
+  --cv-accent: hsl(335 70% 42%);
+  --cv-accent-strong: hsl(335 74% 33%);
+}
+.cv-accent-published {
+  --cv-accent: hsl(95 62% 25%);
+  --cv-accent-strong: hsl(95 66% 19%);
+}
+html.dark .cv-accent-experience {
+  --cv-accent: hsl(215 85% 64%);
+  --cv-accent-strong: hsl(215 90% 74%);
+}
+html.dark .cv-accent-education {
+  --cv-accent: hsl(335 80% 68%);
+  --cv-accent-strong: hsl(335 88% 78%);
+}
+html.dark .cv-accent-published {
+  --cv-accent: hsl(95 50% 50%);
+  --cv-accent-strong: hsl(95 55% 62%);
+}
+
+.cv-timeline { scroll-margin-top: 1rem; }
+.cv-heading {
+  margin-bottom: 2.5rem;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--hb-color-foreground);
+}
+.cv-heading::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 0.25rem;
+  margin: 0.6rem auto 0;
+  border-radius: 999px;
+  background: var(--cv-accent);
+}
+.cv-line {
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--cv-accent), color-mix(in srgb, var(--cv-accent) 85%, transparent), color-mix(in srgb, var(--cv-accent) 45%, transparent));
+}
+@media (min-width: 640px) { .cv-line { left: 1.5rem; } }
+.cv-marker-glow {
+  position: absolute;
+  inset: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  filter: blur(6px);
+  background: color-mix(in srgb, var(--cv-accent) 30%, transparent);
+  transition: background 300ms ease;
+}
+.group:hover .cv-marker-glow { background: color-mix(in srgb, var(--cv-accent) 50%, transparent); }
+.cv-marker {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: 2px solid var(--cv-accent);
+  background: var(--hb-color-background);
+  color: var(--cv-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 300ms ease, border-color 300ms ease;
+}
+.group:hover .cv-marker { transform: scale(1.1); }
+.cv-marker-number {
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.cv-card {
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--hb-color-foreground) 12%, transparent);
+  background: color-mix(in srgb, var(--hb-color-foreground) 2%, var(--hb-color-background));
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+  transition: transform 300ms ease, border-color 300ms ease, background-color 300ms ease;
+}
+.cv-card-compact { padding: 1rem 1.25rem; }
+.group:hover .cv-card {
+  transform: translateX(0.25rem);
+  border-color: color-mix(in srgb, var(--cv-accent) 45%, transparent);
+  background: color-mix(in srgb, var(--cv-accent) 4%, var(--hb-color-background));
+}
+.cv-title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  color: var(--hb-color-foreground);
+  transition: color 200ms ease;
+}
+.group:hover .cv-title { color: var(--cv-accent); }
+.cv-title-pub { font-size: 1.05rem; line-height: 1.5rem; }
+.cv-title-pub a { color: inherit; text-decoration: none; }
+.cv-title-pub a:hover { text-decoration: underline; }
+.cv-accent-text { color: var(--cv-accent); }
+.cv-date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: none;
+  font-size: 0.875rem;
+  color: color-mix(in srgb, var(--hb-color-foreground) 60%, transparent);
+}
+.cv-tag {
+  display: inline-block;
+  padding: 0.25rem 0.625rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--cv-accent-strong);
+  background: color-mix(in srgb, var(--cv-accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cv-accent) 25%, transparent);
+}
+.cv-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-style: italic;
+  color: color-mix(in srgb, var(--hb-color-foreground) 60%, transparent);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+.cv-button:hover { color: var(--cv-accent); }
+.cv-footnote {
+  margin-top: 1.25rem;
+  padding-left: 3rem;
+  font-size: 0.875rem;
+  color: color-mix(in srgb, var(--hb-color-foreground) 60%, transparent);
+}
+@media (min-width: 640px) { .cv-footnote { padding-left: 4rem; } }
+.cv-footnote a { color: var(--cv-accent); text-decoration: underline; }
+
+/* ------------------------------------------------------------------ */
+/* Floating section navigator (markup in layouts/_partials/hooks/        */
+/* body-end/section-nav.html).                                          */
+/* ------------------------------------------------------------------ */
+.hb-secnav {
+  --secnav-fg: var(--hb-color-foreground);
+  --secnav-bg: var(--hb-color-background);
+  --secnav-accent: var(--color-primary-600, #0969da);
+  --secnav-muted: color-mix(in srgb, var(--secnav-fg) 55%, transparent);
+  --secnav-border: color-mix(in srgb, var(--secnav-fg) 14%, transparent);
+  --secnav-hover: color-mix(in srgb, var(--secnav-fg) 7%, transparent);
+  position: fixed;
+  z-index: 40;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+.hb-secnav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem;
+  display: flex;
+  gap: 0.2rem;
+  background: color-mix(in srgb, var(--secnav-bg) 86%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--secnav-border);
+  border-radius: 0.875rem;
+  box-shadow: 0 10px 30px -12px rgb(0 0 0 / 0.35);
+}
+.hb-secnav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 0.6rem;
+  color: var(--secnav-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 120ms ease, background-color 120ms ease;
+}
+.hb-secnav-link:hover,
+.hb-secnav-link:focus-visible {
+  color: var(--secnav-fg);
+  background: var(--secnav-hover);
+  outline: none;
+}
+.hb-secnav-link.is-active {
+  color: var(--secnav-accent);
+  font-weight: 600;
+}
+.hb-secnav-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.55;
+  flex: none;
+  transition: transform 120ms ease, opacity 120ms ease;
+}
+.hb-secnav-link.is-active .hb-secnav-dot {
+  opacity: 1;
+  transform: scale(1.5);
+}
+.hb-secnav-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: none;
+}
+.hb-secnav-sep {
+  flex: none;
+  background: var(--secnav-border);
+}
+.hb-secnav-download {
+  color: var(--secnav-fg);
+}
+
+/* Narrow and mid-width screens: bottom pill bar that scrolls horizontally. */
+@media (max-width: 1399px) {
+  .hb-secnav {
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+  }
+  .hb-secnav-list {
+    flex-direction: row;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    background: var(--secnav-bg); /* opaque: it overlays body text */
+  }
+  .hb-secnav-list::-webkit-scrollbar { display: none; }
+  .hb-secnav-sep {
+    width: 1px;
+    align-self: stretch;
+    margin: 0.25rem 0.25rem;
+  }
+  /* Keep the bar from covering the end of the page. */
+  body { padding-bottom: 5rem; }
+}
+
+/* Wide screens: vertical rail on the left, vertically centered. */
+@media (min-width: 1400px) {
+  .hb-secnav {
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .hb-secnav-list {
+    flex-direction: column;
+  }
+  .hb-secnav-sep {
+    height: 1px;
+    margin: 0.375rem 0.5rem;
+  }
+}
+
+/* 1400-1699px: there is not enough margin beside the content for labels, so the
+   rail collapses to dots and expands (labels slide in) while hovered or focused. */
+@media (min-width: 1400px) and (max-width: 1699px) {
+  .hb-secnav-link {
+    padding: 0.55rem 0.7rem;
+    gap: 0;
+  }
+  .hb-secnav-label {
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-width 160ms ease, opacity 120ms ease, margin-left 160ms ease;
+  }
+  .hb-secnav:hover .hb-secnav-label,
+  .hb-secnav:focus-within .hb-secnav-label {
+    max-width: 12rem;
+    margin-left: 0.6rem;
+    opacity: 1;
+  }
+  .hb-secnav-dot {
+    width: 0.65rem;
+    height: 0.65rem;
+  }
+}
+
+/* >= 1700px: enough room to keep labels visible all the time. */
+@media (min-width: 1700px) {
+  .hb-secnav {
+    left: 1.25rem;
+  }
+  .hb-secnav-list {
+    min-width: 12.5rem;
+  }
+}
+
+/* Biography: keep a side gutter on narrow screens and a readable measure on
+   wide ones (the block renders the bio without horizontal padding). */
+.bio-text {
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* Technical skills: lay the categories out in one row on wide screens  */
+/* (the theme block uses a narrow 2-column grid).                       */
+/* ------------------------------------------------------------------ */
+#skills .grid {
+  max-width: 80rem;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  #skills .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0 1.5rem; }
+}
+@media (min-width: 1280px) {
+  #skills .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}

@@ -1,0 +1,222 @@
+{{/* Custom block: cv-columns
+     Two-column CV layout. Left: Experience. Right: Education, then Published Work
+     (reverse-numbered, optionally truncated), then Presentations.
+     Experience/education come from the author profile (data/authors/<username>.yaml);
+     published work from data/published_work.yaml.
+     Styling: assets/css/custom.css (.cv-*). Each timeline sets its own accent colour
+     via CSS variables so the three timelines form a triadic scheme.
+
+     Params:
+       content.username            author slug (default "me")
+       content.max_publications    0 = show all; otherwise truncate and retitle "Recent Published Work"
+       content.publications_id     HTML id of the Published Work heading (default "publications")
+       content.bibtex_url          optional link shown under the publication list
+       design.date_format          Go date layout (default "Jan 2006")
+*/}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $content := $block.content | default dict }}
+{{ $design := $block.design | default dict }}
+
+{{ $username := $content.username | default "me" }}
+{{ $profile := partial "functions/get_author_profile" $username }}
+{{ $date_format := $design.date_format | default "Jan 2006" }}
+{{ $max_pubs := int ($content.max_publications | default 0) }}
+{{ $pubs_id := $content.publications_id | default "publications" }}
+
+{{ $experience := $profile.experience | default slice }}
+{{ $education := $profile.education | default slice }}
+{{ $work := hugo.Data.published_work | default dict }}
+{{ $pubs_all := $work.publications | default slice }}
+{{ $talks := $work.presentations | default slice }}
+{{ $pubs := $pubs_all }}
+{{ $pubs_title := "Published Work" }}
+{{ if and (gt $max_pubs 0) (gt (len $pubs_all) $max_pubs) }}
+  {{ $pubs = first $max_pubs $pubs_all }}
+  {{ $pubs_title = "Recent Published Work" }}
+{{ end }}
+{{ $pubs_total := len $pubs_all }}
+
+{{/* Reusable date range */}}
+{{ define "_partials/inline/cv_daterange.html" }}
+  {{ $start := .start }}{{ $end := .end }}{{ $fmt := .fmt }}
+  {{ if $start }}{{ $p := try (time $start) }}{{ if not $p.Err }}{{ $p.Value | time.Format $fmt }}{{ else }}{{ $start }}{{ end }} –{{ end }}
+  {{ if $end }}{{ $p := try (time $end) }}{{ if not $p.Err }}{{ $p.Value | time.Format $fmt }}{{ else }}{{ $end }}{{ end }}{{ else }}<span class="cv-accent-text font-medium">{{ i18n "present" | default "Present" }}</span>{{ end }}
+{{ end }}
+
+<div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+  <div class="cv-columns">
+
+    {{/* ───────────── Column 1: Experience ───────────── */}}
+    <div class="cv-col">
+      {{ if gt (len $experience) 0 }}
+      <div class="cv-timeline cv-accent-experience">
+        <h2 class="cv-heading">{{ i18n "experience" | default "Experience" }}</h2>
+        <div class="relative">
+          <div class="cv-line"></div>
+          <div class="space-y-8">
+            {{ range $item := $experience }}
+            <div class="group relative pl-12 sm:pl-16">
+              <div class="absolute left-0 sm:left-2 top-6 flex items-center justify-center">
+                <div class="relative">
+                  <div class="cv-marker-glow"></div>
+                  <div class="cv-marker">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="w-4 h-4"><path d="M216,56H176V48a24,24,0,0,0-24-24H104A24,24,0,0,0,80,48v8H40A16,16,0,0,0,24,72V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V72A16,16,0,0,0,216,56ZM96,48a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM216,72v41.61A184,184,0,0,1,128,136a184.07,184.07,0,0,1-88-22.38V72Zm0,128H40V131.64A200.19,200.19,0,0,0,128,152a200.25,200.25,0,0,0,88-20.37V200ZM104,112a8,8,0,0,1,8-8h32a8,8,0,0,1,0,16H112A8,8,0,0,1,104,112Z"></path></svg>
+                  </div>
+                </div>
+              </div>
+              <div class="cv-card">
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                  <div>
+                    <h3 class="cv-title">{{ $item.role }}</h3>
+                    <p class="cv-accent-text font-medium mt-1">{{ $item.org }}</p>
+                  </div>
+                  <div class="cv-date">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <time>{{ partial "inline/cv_daterange.html" (dict "start" $item.start "end" $item.end "fmt" $date_format) }}</time>
+                  </div>
+                </div>
+                {{ with $item.summary }}
+                <div class="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-400 leading-relaxed">{{ . | emojify | $page.RenderString }}</div>
+                {{ end }}
+                {{ with $item.tags }}
+                <div class="flex flex-wrap gap-2 mt-4">
+                  {{ range . }}<span class="cv-tag">{{ . }}</span>{{ end }}
+                </div>
+                {{ end }}
+                {{ with $item.button }}{{ with .url }}
+                <div class="mt-4 pt-4 border-t border-gray-100 dark:border-white/5">
+                  <a href="{{ . }}" target="_blank" rel="noopener" class="cv-button">
+                    {{ $item.button.text | default "Learn more" }}
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                  </a>
+                </div>
+                {{ end }}{{ end }}
+              </div>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+
+    {{/* ───────────── Column 2: Education, Published Work, Presentations ───────────── */}}
+    <div class="cv-col">
+
+      {{ if gt (len $education) 0 }}
+      <div class="cv-timeline cv-accent-education">
+        <h2 class="cv-heading">{{ i18n "education" | default "Education" }}</h2>
+        <div class="relative">
+          <div class="cv-line"></div>
+          <div class="space-y-8">
+            {{ range $item := $education }}
+            <div class="group relative pl-12 sm:pl-16">
+              <div class="absolute left-0 sm:left-2 top-6 flex items-center justify-center">
+                <div class="relative">
+                  <div class="cv-marker-glow"></div>
+                  <div class="cv-marker">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="w-4 h-4"><path d="M251.76,88.94l-120-64a8,8,0,0,0-7.52,0l-120,64a8,8,0,0,0,0,14.12L32,117.87v48.42a15.91,15.91,0,0,0,4.06,10.65C49.16,191.53,78.51,216,128,216a130,130,0,0,0,48-8.76V240a8,8,0,0,0,16,0V199.51a115.63,115.63,0,0,0,27.94-22.57A15.91,15.91,0,0,0,224,166.29V117.87l27.76-14.81a8,8,0,0,0,0-14.12ZM128,200c-43.27,0-68.72-21.14-80-33.71V126.4l76.24,40.66a8,8,0,0,0,7.52,0L176,143.47v46.34C163.4,195.69,147.52,200,128,200Zm80-33.75a97.83,97.83,0,0,1-16,14.25V134.93l16-8.53ZM188,118.94l-.22-.13-56-29.87a8,8,0,0,0-7.52,14.12L171,128l-43,22.93L25,96,128,41.07,231,96Z"></path></svg>
+                  </div>
+                </div>
+              </div>
+              <div class="cv-card">
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                  <div>
+                    <h3 class="cv-title">{{ $item.degree }}</h3>
+                    <p class="cv-accent-text font-medium mt-1">{{ $item.institution }}</p>
+                  </div>
+                  <div class="cv-date">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <time>{{ partial "inline/cv_daterange.html" (dict "start" $item.start "end" $item.end "fmt" $date_format) }}</time>
+                  </div>
+                </div>
+                {{ with $item.summary }}
+                <div class="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-400 leading-relaxed">{{ . | emojify | $page.RenderString }}</div>
+                {{ end }}
+              </div>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      {{ end }}
+
+      {{ if gt (len $pubs) 0 }}
+      <div class="cv-timeline cv-accent-published" id="{{ $pubs_id }}">
+        <h2 class="cv-heading">{{ $pubs_title }}</h2>
+        <div class="relative">
+          <div class="cv-line"></div>
+          <div class="space-y-8">
+            {{ range $i, $item := $pubs }}
+            {{ $num := sub $pubs_total $i }}
+            <div class="group relative pl-12 sm:pl-16">
+              <div class="absolute left-0 sm:left-2 top-6 flex items-center justify-center">
+                <div class="relative">
+                  <div class="cv-marker-glow"></div>
+                  <div class="cv-marker cv-marker-number" aria-label="Publication {{ $num }}">{{ $num }}</div>
+                </div>
+              </div>
+              <div class="cv-card">
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
+                  <h3 class="cv-title cv-title-pub">
+                    {{ with $item.url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $item.title }}</a>{{ else }}{{ $item.title }}{{ end }}
+                  </h3>
+                  <div class="cv-date"><time>{{ $item.year }}</time></div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 leading-relaxed">{{ $item.authors | $page.RenderString }}</p>
+                <p class="cv-accent-text font-medium mt-1">{{ with $item.venue }}{{ . | $page.RenderString }}{{ end }}{{ with $item.status }}{{ if $item.venue }} · {{ end }}{{ . }}{{ end }}</p>
+                {{ with $item.tags }}
+                <div class="flex flex-wrap gap-2 mt-3">
+                  {{ range . }}<span class="cv-tag">{{ . }}</span>{{ end }}
+                </div>
+                {{ end }}
+              </div>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+        {{ if or $content.bibtex_url (ne $pubs_title "Published Work") }}
+        <p class="cv-footnote">
+          {{ if ne $pubs_title "Published Work" }}Showing {{ len $pubs }} of {{ $pubs_total }}. Full list in the <a href="{{ "uploads/Dawley_CV.pdf" | relURL }}" target="_blank" rel="noopener">CV</a>.{{ end }}
+          {{ with $content.bibtex_url }}<a href="{{ . | relURL }}">BibTeX</a>{{ end }}
+          {{ with $profile.ids }}{{ with .orcid }}· <a href="https://orcid.org/{{ . }}" target="_blank" rel="noopener">ORCID {{ . }}</a>{{ end }}{{ end }}
+        </p>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      {{ if gt (len $talks) 0 }}
+      <div class="cv-timeline cv-accent-published" id="presentations">
+        <h2 class="cv-heading">Presentations</h2>
+        <div class="relative">
+          <div class="cv-line"></div>
+          <div class="space-y-6">
+            {{ range $item := $talks }}
+            <div class="group relative pl-12 sm:pl-16">
+              <div class="absolute left-0 sm:left-2 top-5 flex items-center justify-center">
+                <div class="relative">
+                  <div class="cv-marker-glow"></div>
+                  <div class="cv-marker">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6"/></svg>
+                  </div>
+                </div>
+              </div>
+              <div class="cv-card cv-card-compact">
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+                  <h3 class="cv-title cv-title-pub">{{ $item.title }}</h3>
+                  <div class="cv-date"><time>{{ $item.year }}</time></div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">{{ $item.authors | $page.RenderString }}</p>
+                <p class="cv-accent-text text-sm font-medium mt-1">{{ $item.venue }}</p>
+              </div>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      {{ end }}
+
+    </div>
+  </div>
+</div>

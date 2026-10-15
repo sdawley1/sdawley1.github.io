@@ -3,141 +3,205 @@ slug: me
 is_owner: true
 name:
   display: Sam Dawley
-  # given: Sam Dawley
-  # family: Chien
-  # pronunciation: Chien Shiung Wu
-  # pronouns: she/her
-# status:
-#   icon: "☕️"
-role: Graduate Student Researcher
+  given: Samuel
+  family: Dawley
+role: Ph.D. Candidate in Chemistry · Princeton University
 bio: >
-    Researching methods in inverse statistical mechanics
-    for the targeted design of next-generation materials.
+  Developing theory, large-scale simulations, and statistical methods for disordered many-body systems.
 affiliations:
-  - name: Princeton University
-    url: https://chemistry.princeton.edu/home/
+  - name: Complex Materials Theory Group
+    url: https://torquato.princeton.edu
+ids:
+  orcid: 0009-0005-6234-476X
+interests:
+  - Inverse statistical mechanics
+  - Hyperuniformity and disordered ground states
+  - Monte Carlo and molecular dynamics
+  - GPU and high-performance computing
+  - Statistical inference and uncertainty quantification
+  - Deep learning for inverse problems
 links:
   - icon: at-symbol
     url: mailto:sd2402@princeton.edu
-    label: E-mail Me
+    label: E-mail
   - icon: brands/github
     url: https://github.com/sdawley1
+    label: GitHub
   - icon: brands/linkedin
     url: https://www.linkedin.com/in/sam-dawley-0ab5651a8/
+    label: LinkedIn
+  - icon: brands/orcid
+    url: https://orcid.org/0009-0005-6234-476X
+    label: ORCID
 
 # ----- EXPERIENCE -----
 experience:
   - role: Graduate Research Assistant
-    org: Princeton University
-    start: 2023-08-01
-    end: #2022-08-01
+    org: Princeton University · Complex Materials Theory Group
+    start: 2023-09-01
+    end:
     summary: |
-      - Designed and implemented novel scalable CPU and GPU parallelized algorithms in HPC environments for many-body physics simulations.
+      Advisor: [Prof. Salvatore Torquato](https://torquato.princeton.edu). Princeton, NJ.
+
+      - Advance theory and computational methods in inverse statistical mechanics for the targeted design of materials with prescribed structure, with emphasis on disordered stealthy hyperuniform ground states.
+      - Quantified how diverse initial many-particle configurations evolve to hyperuniform ground states, and how nonequilibrium initial conditions relax to equilibrium, using large-scale Monte Carlo and molecular dynamics simulations on multi-GPU clusters. First-author paper in *Phys. Rev. E*; second first-author manuscript in preparation.
+      - Designed and implemented scalable CPU- and GPU-parallel algorithms for many-body simulation in HPC environments (C/C++ with OpenMP and SIMD, CUDA, JAX).
+      - Built a bootstrap uncertainty-quantification pipeline for relaxation times estimated from noisy simulation time series, cutting data volume and runtime by orders of magnitude while reproducing the original estimates exactly.
+      - Diagnosed estimator bias and sampling artifacts that would otherwise have distorted published results, and designed corrected analysis protocols.
+      - Implemented GPU-accelerated mutual-information estimators in JAX to analyze hundreds of gigabytes of stochastic trajectory data.
+      - Developed deep-learning models (neural operators, diffusion models, equivariant graph networks) in PyTorch to infer interaction potentials from structural data, benchmarking architectures across hundreds of tracked GPU runs.
+    tags:
+      - C/C++
+      - CUDA
+      - JAX
+      - PyTorch
+      - Monte Carlo
+      - Molecular dynamics
+      - SLURM
     button:
-      text: "Related: S. J. Dawley and S. Torquato, Phys. Rev. E, 112, 045310 (2025)"
-      url: "https://journals.aps.org/pre/abstract/10.1103/9wbz-h7t4"
+      text: "S. J. Dawley & S. Torquato, Phys. Rev. E 112, 045310 (2025)"
+      url: "https://doi.org/10.1103/9wbz-h7t4"
 
   - role: Research Intern
-    org: Platform for the Accelerated Realization, Analysis, and Discovery of Interface Materials
-    start: 2022-05-01
-    end: 2022-08-01
+    org: PARADIM (NSF Materials Innovation Platform) · Johns Hopkins University
+    start: 2022-06-01
+    end: 2022-08-31
     summary: |
-      With Dr. David Elbert and [Prof. Tyrel McQueen](https://occamy.chemistry.jhu.edu), advanced strategies for real-time data analysis and autonomous experimental control using statistical learning algorithms.
+      Advisors: Dr. David Elbert, [Prof. Tyrel McQueen](https://occamy.chemistry.jhu.edu), Dr. Apurva Mehta. Baltimore, MD.
 
-  - role: Laboratory Technician
-    org: Massachusetts General Hospital
-    start: 2020-06-01
-    end: 2020-09-01
-    summary: |
-      With Dr. Tristan Kooistra and Dr. Benjamin Medoff, studied response of airway epithelium cells to lung inflammation and scarring for an increased understanding of idiopathic pulmonary fibrosis. Developed an algorithm to analyze the spatial distribution of cultured cells to visualize inflammation patterning.
+      - Advanced strategies for real-time data analysis and autonomous experimental control with machine learning, toward accelerated discovery of inorganic materials.
+      - Developed a statistical-learning algorithm and its implementation for automatic signal-structure and spectral-peak detection in X-ray diffraction data.
+      - Implemented live streaming of experimental data and online analysis with Apache Kafka; presented the work at Cornell University.
+    tags:
+      - Python
+      - Apache Kafka
+      - Statistical learning
+      - X-ray diffraction
 
   - role: Undergraduate Research Assistant
-    org: Johns Hopkins University
+    org: Johns Hopkins University · Department of Chemistry
     start: 2020-01-01
-    end: 2023-08-01
+    end: 2023-05-31
     summary: |
-      - Quantified internal state dynamics of light- and heavy-metal diatoms using coupled-cluster theory for modeling vibrational lifetimes of optically-trapped molecules subject to blackbody radiation.
-      - Computationally modeled organic, aromatic cycloparaphenylenes using density-functional theory to explore their novel, hybrid radial-linear conjugation pathways; developed a Python package to calculate the nucleus independent chemical shifts for quantifying the strength of electron delocalization in aromatic molecules.
-    button:
-      text: "Related: Vilas, et al., Phys. Rev. A, 107, 062802 (2023)"
-      url: "https://journals.aps.org/pra/abstract/10.1103/PhysRevA.107.062802"
+      Advisors: [Prof. Lan Cheng](https://sites.krieger.jhu.edu/cheng/) (2022–2023) and [Prof. J. D. Tovar](https://sites.krieger.jhu.edu/tovar-group/) (2020–2023). Baltimore, MD.
 
-  # - role: Backend Software Engineer
-  #   org: X
-  #   start: 2016-01-01
-  #   end: 2020-12-31
-  #   summary: |
-  #     Responsibilities include:
-  #     - Migrated infrastructure to a new data center
-  #     - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  #     - lorem ipsum dolor sit amet, consectetur adipiscing elit
+      - Studied relativistic effects in light- and heavy-atom molecules with coupled-cluster theory; computed vibrational lifetimes and polarizabilities of laser-cooled molecular and heavy-element ionic diatoms.
+      - Modeled blackbody-driven vibrational lifetimes of optically trapped polyatomic molecules in collaboration with the Doyle group (Harvard); co-authored the resulting *Phys. Rev. A* paper and presented the work at the ACS Spring National Meeting.
+      - Benchmarked perturbative versus variational treatments of spin–orbit coupling in heavy-element molecules.
+      - Computed optimized geometries and orbital energies of cycloparaphenylenes with density-functional theory on HPC clusters; wrote a Python package for nucleus-independent chemical shifts and automated Gaussian16 workflows on the Maryland Advanced Research Computing Center.
+      - Synthesized novel organic compounds and characterized them by NMR and mass spectrometry.
+    tags:
+      - Coupled cluster
+      - DFT
+      - CFOUR
+      - Gaussian16
+      - Python
+    button:
+      text: "Vilas et al., Phys. Rev. A 107, 062802 (2023)"
+      url: "https://doi.org/10.1103/PhysRevA.107.062802"
+
+  - role: Research Intern
+    org: Massachusetts General Hospital · Pulmonary and Critical Care Medicine
+    start: 2021-06-01
+    end: 2021-08-31
+    summary: |
+      Advisors: Dr. Tristan Kooistra, Dr. Benjamin Medoff. Boston, MA.
+
+      - Studied the response of airway epithelial cells to lung inflammation and scarring toward an improved understanding of idiopathic pulmonary fibrosis.
+      - Created, maintained, and monitored tissue co-cultures grown from basal and immune cells of murine samples.
+      - Developed a Python algorithm based on Delaunay triangulation to parse the spatial distribution of cultured cells and visualize inflammation patterning.
+    tags:
+      - Python
+      - Spatial statistics
+      - Image analysis
 
 # ----- EDUCATION -----
 education:
-  # GRAD
-  - degree: Ph.D. in Chemistry 
+  - degree: Ph.D. in Chemistry
     institution: Princeton University
-    start: 2023-01-01
-    end: #2029-12-31
+    start: 2023-09-01
+    end:
     summary: |
-      Advised by [Prof. Salvatore Torquato](https://torquato.princeton.edu) in the Complex Materials and Theory Group.
+      Advisor: [Prof. Salvatore Torquato](https://torquato.princeton.edu). Ph.D. candidate; General Examination passed May 2025. Graduate Certificate in Computational Science & Engineering.
 
-  # UNDERGRAD
-  - degree: B.A. in Chemistry and Applied Mathematics & Statistics
+      Coursework: Statistical Mechanics, Random Heterogeneous Materials, Numerical Algorithms for Scientific Computing, Phase Transformations in Materials, Condensed Matter Physics, Mathematical Methods of Engineering Analysis.
+
+  - degree: B.A. Chemistry and Applied Mathematics & Statistics; Minor in Mathematics
     institution: Johns Hopkins University
     start: 2019-08-01
     end: 2023-05-31
     summary: |
-      Advised by [Prof. Lan Cheng](https://sites.krieger.jhu.edu/cheng/) and [Prof. J. D. Tovar](https://sites.krieger.jhu.edu/tovar-group/).
-      - 3+ years experience assisting teaching in courses spanning subjects in chemistry and applied mathematics.
-      - In 2023, recipient of the [American Chemical Society Undergraduate Award](https://acsmaryland.org/awards/student-awards/) by the Maryland Section of the American Chemical Society.
+      GPA 3.87/4.00. Departmental Honors in Chemistry; General Honors; Dean's List every semester. [American Chemical Society Undergraduate Award](https://acsmaryland.org/awards/student-awards/), Maryland Section (2023).
+
+      Coursework: Probability, Statistics, Bayesian Statistics, Optimization, Linear Algebra, Differential Equations, Discrete Mathematics, Topology, Statistical Mechanics, Computational Molecular Medicine, Quantum Chemistry.
 
 # ----- SKILLS -----
 skills:
-  - name: Technical Skills
+  - name: Languages
     items:
-      - label: Python
-        level: 4
-      - label: RStudio
-        level: 5
-      - label: PyTorch
-        level: 2
-  - name: Hobbies
-    color: "#eeac02"
-    color_border: "#f0bf23"
+      - label: Python (NumPy, SciPy)
+        icon: devicon/python
+      - label: C / C++ (OpenMP, SIMD)
+        icon: devicon/cplusplus
+      - label: CUDA
+        icon: hero/cpu-chip
+      - label: Mathematica, MATLAB
+        icon: hero/variable
+      - label: LaTeX
+        icon: hero/document-text
+  - name: Scientific computing & HPC
     items:
-      - label: Hiking
-        level: 3
-      - label: Cats
-        level: 5
-      - label: Photography
-        level: 4
-
-# languages:
-#   - name: English
-#     level: 5
-#   - name: Chinese
-#     level: 4
-#   - name: Portuguese
-#     level: 1
+      - label: SLURM, multi-GPU clusters
+        icon: hero/server-stack
+      - label: FFTW, FINUFFT
+        icon: hero/calculator
+      - label: Git, pytest, Weights & Biases
+        icon: hero/code-bracket
+      - label: Apache Kafka
+        icon: hero/arrow-path
+  - name: Statistics & machine learning
+    items:
+      - label: Monte Carlo, stochastic dynamics
+        icon: hero/cube-transparent
+      - label: Statistical inference, bootstrap UQ, time-series analysis
+        icon: hero/chart-bar
+      - label: Mutual-information estimation, numerical optimization
+        icon: hero/presentation-chart-line
+      - label: PyTorch, JAX
+        icon: devicon/pytorch
+      - label: Neural operators, diffusion models, equivariant GNNs
+        icon: hero/sparkles
+  - name: Electronic structure & laboratory
+    items:
+      - label: Coupled cluster (CFOUR), DFT (Gaussian16)
+        icon: hero/beaker
+      - label: NMR, mass spectrometry, X-ray diffraction
+        icon: hero/magnifying-glass
 
 # ----- AWARDS -----
 awards:
-  - title: Neural Networks and Deep Learning
-    url: https://www.coursera.org/learn/neural-networks-deep-learning
-    date: "2023-11-25"
-    awarder: Coursera
-    icon: brands/coursera
+  - title: American Chemical Society Undergraduate Award
+    url: https://acsmaryland.org/awards/student-awards/
+    date: "2023-05-01"
+    awarder: Maryland Section of the American Chemical Society
+    icon: hero/trophy
     summary: |
-      I studied the foundational concept of neural networks and deep learning. By the end, I was familiar with the significant technological trends driving the rise of deep learning; build, train, and apply fully connected deep neural networks; implement efficient (vectorized) neural networks; identify key parameters in a neural network’s architecture; and apply deep learning to your own applications.
-
-  - title: Blockchain Fundamentals
-    url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
-    date: "2023-07-01"
-    awarder: edX
-    icon: brands/edx
+      Recognizes outstanding achievement by chemistry students across universities in the Maryland Section.
+  - title: Departmental Honors in Chemistry
+    date: "2023-05-25"
+    awarder: Johns Hopkins University
+    icon: hero/academic-cap
     summary: |
-      Learned:
-      - Synthesize your own blockchain solutions
-      - Gain an in-depth understanding of the specific mechanics of Bitcoin
-      - Understand Bitcoin’s real-life applications and learn how to attack and destroy Bitcoin, Ethereum, smart contracts and Dapps, and alternatives to Bitcoin’s Proof-of-Work consensus algorithm
+      Awarded for exceptional performance in both coursework and research.
+  - title: General Honors
+    date: "2023-05-25"
+    awarder: Johns Hopkins University
+    icon: hero/academic-cap
+    summary: |
+      Dean's List every semester, 2019–2023.
+  - title: Life Design Lab Grant
+    date: "2021-05-01"
+    awarder: Johns Hopkins University
+    icon: hero/banknotes
+    summary: |
+      Funded summer research at Massachusetts General Hospital on idiopathic pulmonary fibrosis.
