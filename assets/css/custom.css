@@ -341,3 +341,18 @@ html.dark .cv-accent-published {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
 }
+
+/* ------------------------------------------------------------------ */
+/* Technical skills: lay the categories out in one row on wide screens  */
+/* (the theme block uses a narrow 2-column grid).                       */
+/* ------------------------------------------------------------------ */
+#skills .grid {
+  max-width: 80rem;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  #skills .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0 1.5rem; }
+}
+@media (min-width: 1280px) {
+  #skills .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}

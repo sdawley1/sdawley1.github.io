@@ -22,13 +22,6 @@ main:
   - name: Skills
     url: '#skills'
     weight: 50
-  - name: Teaching
-    url: '#teaching'
-    weight: 60
-  - name: Honors
-    url: '#honors'
-    weight: 70
-
 downloads:
   - name: CV
     url: 'uploads/Dawley_CV.pdf'

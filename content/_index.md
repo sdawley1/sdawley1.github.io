@@ -140,36 +140,4 @@ sections:
     design:
       spacing:
         padding: ['3rem', '0', '3rem', '0']
-
-  # ----- TEACHING & MENTORING -----
-  - block: markdown
-    id: teaching
-    content:
-      title: Teaching & Mentoring
-      text: |
-        **Teaching Assistant, Princeton University** (Fall 2025)
-        - *Statistical Mechanics* (graduate): equilibrium and nonequilibrium thermodynamics, classical and quantum statistics, critical phenomena, and computational techniques.
-        - *Software Engineering for Scientific Computing* (graduate): writing portable, robust code for high-performance computing environments.
-        - *Calculus I* (undergraduate).
-
-        **Teaching Assistant, Johns Hopkins University** (2022–2023)
-        - *Computational Molecular Medicine* (graduate): machine learning, statistical inference, and multiple hypothesis testing for high-dimensional biological data.
-        - *Organic Chemistry I & II* and the introductory and intermediate organic chemistry laboratories.
-
-        **Head PILOT Leader, Johns Hopkins University** (2020–2023)
-        - Organized and led weekly peer-led team-learning sessions in multivariable calculus and organic chemistry; co-wrote the problem sets and answer keys used by the whole course with the instructor; ran midterm and final review sessions.
-        - Private tutor in linear algebra, multivariable calculus, organic chemistry, and physical chemistry; first-year mentor for an incoming cohort (2020–2021).
-    design:
-      spacing:
-        padding: ['3rem', '0', '3rem', '0']
-
-  # ----- HONORS -----
-  - block: resume-awards
-    id: honors
-    content:
-      title: Honors
-      username: me
-    design:
-      spacing:
-        padding: ['3rem', '0', '4rem', '0']
 ---
