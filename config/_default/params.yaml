@@ -300,9 +300,11 @@ hugoblox:
 #   rings  - structure-factor rings illustration behind the hero (SVG)
 #   aurora - drifting colour orbs in the triadic accents (CSS only)
 # motion: subtle | medium | lively      interact: cursor repulsion on pointer devices
+# waves: clicking/tapping the page emits an acoustic pulse that travels through the field
 # Preview and compare live: open the site with ?bglab appended to the URL.
 # ══════════════════════════════════════════════════════════════════════════════
 site_background:
   layers: ["field"]
   motion: medium
   interact: true
+  waves: true

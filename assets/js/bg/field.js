@@ -23,6 +23,7 @@ export function createField(host, opts) {
   const motion = opts.motion === 'lively' ? 'lively' : opts.motion === 'medium' ? 'medium' : 'subtle';
   const reduced = !!opts.reduced;
   const interact = !!opts.interact && !reduced && window.matchMedia('(pointer: fine)').matches;
+  const wavesOn = opts.waves !== false && !reduced;
 
   const canvas = document.createElement('canvas');
   canvas.className = 'bg-field' + (mode === 'relax' ? ' bg-field--relax' : '');
@@ -42,6 +43,8 @@ export function createField(host, opts) {
   const FLOW_AMP = { subtle: 6, medium: 11, lively: 18 }[motion];   // px/s
   const NOISE = { subtle: 1.5, medium: 2.2, lively: 3 }[motion];   // px/sqrt(s)
   const CURSOR_R = 120, CURSOR_F = 110;              // px, px/s
+  // Acoustic wave emitted on click: a radial velocity pulse with a Gaussian front
+  const WAVE_C = 420, WAVE_W = 55, WAVE_A = 110, WAVE_TAU = 2.4, WAVE_MAX = 6;
   const MAX_DT = 1 / 30;
 
   // Divergence-free flow: v = (dpsi/dy, -dpsi/dx), psi = sum_m sin(kx x + wx t) sin(ky y + wy t)
@@ -168,6 +171,19 @@ export function createField(host, opts) {
   const vout = [0, 0];
   let t = 0;
   const pointer = { x: -1e9, y: -1e9, active: false };
+  const waves = []; // { x, y, age }
+  let glow = null;  // per-point wave excitation (0..1) for rendering
+
+  function waveFactor(dx, dy, age, out) {
+    // Gaussian ring at radius c*age, amplitude decaying in time and with spreading
+    const r = Math.sqrt(dx * dx + dy * dy) + 1e-6;
+    const front = WAVE_C * age;
+    const u = (r - front) / WAVE_W;
+    if (u > 3 || u < -3) { out[0] = 0; return r; }
+    const env = Math.exp(-age / WAVE_TAU) / Math.sqrt(1 + front / 300);
+    out[0] = Math.exp(-u * u) * env;
+    return r;
+  }
 
   function step(dt, o) {
     if (!fx.v || fx.v.length !== N) { fx.v = new Float32Array(N); fy.v = new Float32Array(N); }
@@ -190,8 +206,24 @@ export function createField(host, opts) {
       });
     }
     const sq = Math.sqrt(dt) * (o.noise == null ? NOISE : o.noise);
+    const hasWaves = waves.length > 0;
+    if (hasWaves && (!glow || glow.length !== N)) glow = new Float32Array(N);
+    if (hasWaves) glow.fill(0);
+    const wf = [0];
     for (let i = 0; i < N; i++) {
       let vx = FX[i], vy = FY[i];
+      if (hasWaves) {
+        for (let k = 0; k < waves.length; k++) {
+          const w = waves[k];
+          const dx = px[i] - w.x, dy = py[i] - w.y;
+          const r = waveFactor(dx, dy, w.age, wf);
+          if (wf[0] > 0) {
+            const a = WAVE_A * wf[0];
+            vx += (a * dx) / r; vy += (a * dy) / r;
+            if (wf[0] > glow[i]) glow[i] = wf[0];
+          }
+        }
+      }
       if (o.drive) { flow(px[i], py[i], t, vout); vx += vout[0]; vy += vout[1]; }
       if (o.cursor && pointer.active) {
         const dx = px[i] - pointer.x, dy = py[i] - pointer.y;
@@ -209,6 +241,20 @@ export function createField(host, opts) {
       px[i] = x; py[i] = y;
     }
     t += dt;
+    if (hasWaves) {
+      const maxR = Math.hypot(W, H);
+      for (let k = waves.length - 1; k >= 0; k--) {
+        waves[k].age += dt;
+        if (waves[k].age > 4 || WAVE_C * waves[k].age > maxR + 3 * WAVE_W) waves.splice(k, 1);
+      }
+      if (!waves.length && glow) glow.fill(0);
+    }
+  }
+
+  function emitWave(x, y, age) {
+    if (!wavesOn) return;
+    if (waves.length >= WAVE_MAX) waves.shift();
+    waves.push({ x, y, age: age || 0 });
   }
 
   // ---- drawing --------------------------------------------------------------
@@ -239,20 +285,33 @@ export function createField(host, opts) {
         let xj = px[j], yj = py[j];
         if (xj - xi > W / 2) xj -= W; else if (xi - xj > W / 2) xj += W;
         if (yj - yi > H / 2) yj -= H; else if (yi - yj > H / 2) yj += H;
-        ctx.globalAlpha = 0.55 * (1 - nd[k] / rlink);
+        const gl = glow ? Math.max(glow[i], glow[j]) : 0;
+        ctx.globalAlpha = Math.min(1, 0.55 * (1 - nd[k] / rlink) + 0.8 * gl);
+        ctx.lineWidth = 1 + 0.8 * gl;
         ctx.beginPath(); ctx.moveTo(xi, yi); ctx.lineTo(xj, yj); ctx.stroke();
       }
     }
     // points: soft halo + core
     for (let i = 0; i < N; i++) {
       const c = colours[pc[i]];
+      const gl = glow ? glow[i] : 0;
       ctx.fillStyle = c;
-      ctx.globalAlpha = 0.18;
-      ctx.beginPath(); ctx.arc(px[i], py[i], pr[i] * 3, 0, TAU); ctx.fill();
+      ctx.globalAlpha = 0.18 + 0.5 * gl;
+      ctx.beginPath(); ctx.arc(px[i], py[i], pr[i] * (3 + 2.5 * gl), 0, TAU); ctx.fill();
       ctx.globalAlpha = 0.95;
-      ctx.beginPath(); ctx.arc(px[i], py[i], pr[i], 0, TAU); ctx.fill();
+      ctx.beginPath(); ctx.arc(px[i], py[i], pr[i] * (1 + 0.6 * gl), 0, TAU); ctx.fill();
+    }
+    // wave fronts: a faint expanding ring so the pulse reads even between points
+    for (const w of waves) {
+      const front = WAVE_C * w.age;
+      const env = Math.exp(-w.age / WAVE_TAU) / Math.sqrt(1 + front / 300);
+      ctx.strokeStyle = colours[0];
+      ctx.lineWidth = WAVE_W * 0.6;
+      ctx.globalAlpha = 0.12 * env;
+      ctx.beginPath(); ctx.arc(w.x, w.y, front, 0, TAU); ctx.stroke();
     }
     ctx.globalAlpha = 1;
+    ctx.lineWidth = 1;
   }
 
   // ---- relax-mode schedule ----------------------------------------------------
@@ -330,6 +389,14 @@ export function createField(host, opts) {
     pointer.active = true;
   }
   function onPointerLeave() { pointer.active = false; }
+  function onPointerDown(e) {
+    if (e.button != null && e.button !== 0) return;
+    const el = e.target;
+    if (el && el.closest && el.closest('a, button, input, select, textarea, label, summary, .bg-lab, .hb-secnav')) return;
+    const rect = canvas.getBoundingClientRect();
+    emitWave(e.clientX - rect.left, e.clientY - rect.top);
+    if (!running) start();
+  }
   function onVisibility() { if (document.hidden) stop(); else start(); }
   let resizeTimer = 0;
   function onResize() {
@@ -370,6 +437,7 @@ export function createField(host, opts) {
     window.addEventListener('pointerleave', onPointerLeave);
     document.addEventListener('mouseleave', onPointerLeave);
   }
+  if (wavesOn) window.addEventListener('pointerdown', onPointerDown, { passive: true });
   document.addEventListener('visibilitychange', onVisibility);
   window.addEventListener('resize', onResize);
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -379,6 +447,7 @@ export function createField(host, opts) {
   return {
     name: mode,
     stats,
+    emitWave,
     recolor() { recolor(); if (reduced) draw(); },
     destroy() {
       stop();
@@ -386,6 +455,7 @@ export function createField(host, opts) {
       window.removeEventListener('pointermove', onPointerMove);
       window.removeEventListener('pointerleave', onPointerLeave);
       document.removeEventListener('mouseleave', onPointerLeave);
+      window.removeEventListener('pointerdown', onPointerDown);
       document.removeEventListener('visibilitychange', onVisibility);
       window.removeEventListener('resize', onResize);
       window.removeEventListener('scroll', onScroll);

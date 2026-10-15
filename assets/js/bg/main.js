@@ -33,6 +33,7 @@ function parseConfig(el) {
     layers: (el.dataset.bgLayers || 'field').split(',').map((s) => s.trim()).filter((s) => LAYERS.includes(s)),
     motion: normMotion(el.dataset.bgMotion),
     interact: el.dataset.bgInteract !== 'false',
+    waves: el.dataset.bgWaves !== 'false',
   };
   const q = new URLSearchParams(location.search);
   const lab = q.has('bglab');
@@ -43,6 +44,7 @@ function parseConfig(el) {
         cfg.layers = saved.layers.filter((s) => LAYERS.includes(s));
         cfg.motion = normMotion(saved.motion);
         cfg.interact = saved.interact !== false;
+        cfg.waves = saved.waves !== false;
       }
     } catch (e) { /* ignore */ }
   }
@@ -73,7 +75,7 @@ function init() {
       if (!c.layers.includes(name)) return;
       if (name === 'aurora') active.push(createAurora(host));
       else if (name === 'rings') active.push(createRings(host, { reduced }));
-      else active.push(createField(host, { mode: name, motion: c.motion, interact: c.interact, reduced }));
+      else active.push(createField(host, { mode: name, motion: c.motion, interact: c.interact, waves: c.waves, reduced }));
       host.classList.add('has-' + name);
     });
     host.classList.add('bg-motion-' + c.motion);
@@ -81,6 +83,16 @@ function init() {
   }
 
   mount(cfg);
+
+  // Debug/preview: ?bgwave or ?bgwave=x,y,age emits one pulse (viewport coords) right after mount.
+  const dbg = new URLSearchParams(location.search);
+  if (dbg.has('bgwave')) {
+    const parts = (dbg.get('bgwave') || '').split(',').map(Number);
+    const x = isFinite(parts[0]) && parts[0] > 0 ? parts[0] : window.innerWidth / 2;
+    const y = isFinite(parts[1]) && parts[1] > 0 ? parts[1] : window.innerHeight / 2;
+    const age = isFinite(parts[2]) ? parts[2] : 0;
+    active.forEach((l) => l.emitWave && l.emitWave(x, y, age));
+  }
 
   // Recolour when the theme toggles (html.dark)
   new MutationObserver(() => active.forEach((l) => l.recolor()))
@@ -102,6 +114,7 @@ function buildLab(host, getCfg, mount, getActive) {
     </div>
     <div class="bg-lab-group" data-group="interact">
       <label><input type="checkbox" value="interact"> cursor repulsion</label>
+      <label><input type="checkbox" value="waves"> click waves</label>
     </div>
     <div class="bg-lab-stats"><span data-fps>–</span> fps · <span data-ms>–</span> ms/frame</div>
     <button type="button" class="bg-lab-copy">Copy params.yaml snippet</button>
@@ -113,15 +126,17 @@ function buildLab(host, getCfg, mount, getActive) {
     const c = getCfg();
     panel.querySelectorAll('[data-group="layers"] input').forEach((i) => { i.checked = c.layers.includes(i.value); });
     panel.querySelectorAll('[data-group="motion"] input').forEach((i) => { i.checked = i.value === c.motion; });
-    panel.querySelector('[data-group="interact"] input').checked = c.interact;
+    panel.querySelector('[data-group="interact"] input[value="interact"]').checked = c.interact;
+    panel.querySelector('[data-group="interact"] input[value="waves"]').checked = c.waves !== false;
     panel.querySelector('.bg-lab-yaml').value =
-      'site_background:\n  layers: [' + c.layers.map((l) => '"' + l + '"').join(', ') + ']\n  motion: ' + c.motion + '\n  interact: ' + c.interact;
+      'site_background:\n  layers: [' + c.layers.map((l) => '"' + l + '"').join(', ') + ']\n  motion: ' + c.motion + '\n  interact: ' + c.interact + '\n  waves: ' + (c.waves !== false);
   }
   function read() {
     const layers = Array.from(panel.querySelectorAll('[data-group="layers"] input:checked')).map((i) => i.value);
     const motion = normMotion(panel.querySelector('[data-group="motion"] input:checked')?.value);
-    const interact = panel.querySelector('[data-group="interact"] input').checked;
-    return { layers, motion, interact };
+    const interact = panel.querySelector('[data-group="interact"] input[value="interact"]').checked;
+    const waves = panel.querySelector('[data-group="interact"] input[value="waves"]').checked;
+    return { layers, motion, interact, waves };
   }
   panel.addEventListener('change', () => {
     const c = read();

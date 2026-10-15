@@ -6,6 +6,8 @@
 {{- $motion := $bg.motion | default "subtle" -}}
 {{- $interact := true -}}
 {{- if isset $bg "interact" }}{{ $interact = $bg.interact }}{{ end -}}
+{{- $waves := true -}}
+{{- if isset $bg "waves" }}{{ $waves = $bg.waves }}{{ end -}}
 {{- $js := resources.Get "js/bg/main.js" | js.Build (dict "targetPath" "js/site-bg.js" "minify" true) -}}
 {{- if hugo.IsProduction }}{{ $js = $js | fingerprint "sha256" }}{{ end -}}
 <script>
@@ -15,6 +17,7 @@
     el.dataset.bgLayers = {{ delimit $layers "," }};
     el.dataset.bgMotion = {{ $motion }};
     el.dataset.bgInteract = {{ printf "%v" $interact }};
+    el.dataset.bgWaves = {{ printf "%v" $waves }};
   })();
 </script>
 <script src="{{ $js.RelPermalink }}" defer{{ if hugo.IsProduction }} integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous"{{ end }}></script>
