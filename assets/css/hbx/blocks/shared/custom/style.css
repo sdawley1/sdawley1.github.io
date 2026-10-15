@@ -7,13 +7,3 @@ a.inline-flex.items-center.gap-2.text-sm.font-medium.text-gray-500 {
   font-weight: 700;
   font-style: italic;
 }
-
-/* Biography: keep a side gutter on narrow screens and a readable measure on
-   wide ones (the block renders the bio without horizontal padding). */
-.bio-text {
-  max-width: 42rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-}

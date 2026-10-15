@@ -75,7 +75,7 @@ sections:
   - block: markdown
     id: publications
     content:
-      title: Publications & Presentations
+      title: Published Work
       text: |
         #### Publications
 

@@ -85,9 +85,9 @@ hugoblox:
   header:
     enable: true
     # Header style variant
-    style: navbar # navbar | navbar-simple | minimal
+    style: floating-theme-toggler # navbar | navbar-simple | minimal | floating-theme-toggler (no bar; section nav is a custom floating rail)
     # Stick to top on scroll
-    sticky: true
+    sticky: false
     # Menu alignment
     align: right # left | center | right
     # Feature toggles

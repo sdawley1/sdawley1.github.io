@@ -1,15 +1,19 @@
 # Navigation Links
-#   Single-page site: each entry links to a section `id` in content/_index.md.
-#   The weight parameter defines the order that the links will appear in.
+#   Single-page site. `main` entries link to section `id`s in content/_index.md and are
+#   rendered by the floating section navigator (layouts/_partials/hooks/body-end/section-nav.html).
+#   `downloads` entries appear at the end of the navigator as document links.
 
 main:
+  - name: About
+    url: '#about'
+    weight: 5
   - name: Research
     url: '#research'
     weight: 10
   - name: Experience
     url: '#experience'
     weight: 20
-  - name: Publications
+  - name: Published Work
     url: '#publications'
     weight: 30
   - name: Projects
@@ -21,3 +25,14 @@ main:
   - name: Teaching
     url: '#teaching'
     weight: 60
+  - name: Honors
+    url: '#honors'
+    weight: 70
+
+downloads:
+  - name: CV
+    url: 'uploads/Dawley_CV.pdf'
+    weight: 10
+  - name: Résumé
+    url: 'uploads/Dawley_Resume.pdf'
+    weight: 20
