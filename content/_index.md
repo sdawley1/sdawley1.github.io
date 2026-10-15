@@ -27,10 +27,10 @@ sections:
     id: research
     content:
       title: Research
-      text: Three threads run through my work, from thesis theory to the code and statistics that make it quantitative.
+      text: Theory, scalable computation, and statistical inference.
       items:
         - name: Inverse statistical mechanics
-          description: Designing interactions that stabilize prescribed structures. Hyperuniform and stealthy disordered ground states, relaxation of nonequilibrium initial conditions to equilibrium, and the structure-to-interaction inverse problem.
+          description: Designing interactions that stabilize prescribed structures, with emphasis on hyperuniform and stealthy disordered ground states and their relaxation to equilibrium.
           icon: hero/cube-transparent
           topics:
             - Hyperuniformity
@@ -39,7 +39,7 @@ sections:
             - Pair statistics
             - Inverse problems
         - name: Scientific computing at scale
-          description: Custom Monte Carlo and molecular dynamics engines for many-body systems, parallelized with OpenMP, SIMD, and CUDA, run on multi-GPU clusters. GPU estimators that process hundreds of gigabytes of trajectory data.
+          description: Custom Monte Carlo and molecular dynamics engines, parallelized with OpenMP, SIMD, and CUDA, that run on multi-GPU clusters and process hundreds of gigabytes of trajectory data.
           icon: hero/cpu-chip
           topics:
             - C/C++ · CUDA · JAX
@@ -47,7 +47,7 @@ sections:
             - HPC workflows
             - Performance engineering
         - name: Statistical inference and machine learning
-          description: Bootstrap uncertainty quantification for noisy time series, estimator-bias diagnosis, mutual-information estimation, and deep-learning models (neural operators, diffusion models, equivariant GNNs) for inferring potentials from structure.
+          description: Bootstrap uncertainty quantification, estimator-bias diagnosis, mutual-information estimation, and deep-learning models that infer interaction potentials from structure.
           icon: hero/chart-bar
           topics:
             - Uncertainty quantification

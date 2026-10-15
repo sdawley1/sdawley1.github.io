@@ -7,18 +7,8 @@ name:
   family: Dawley
 role: Ph.D. Candidate in Chemistry · Princeton University
 bio: >
-  I develop theory, large-scale simulations, and statistical methods for disordered
-  many-particle systems. My thesis work in [Salvatore Torquato's](https://torquato.princeton.edu)
-  Complex Materials Theory Group uses inverse statistical mechanics to design materials with
-  prescribed structure, with an emphasis on disordered stealthy hyperuniform states.
-  Along the way I write GPU- and SIMD-parallel Monte Carlo and molecular dynamics codes, build
-  uncertainty-quantification pipelines for noisy simulation time series, and train deep-learning
-  models that infer interaction potentials from structure. First-author paper in
-  *Phys. Rev. E* (2025). Before Princeton: B.A. in Chemistry and Applied Mathematics & Statistics
-  at Johns Hopkins (GPA 3.87).
+  Developing theory, large-scale simulations, and statistical methods for disordered many-body systems.
 affiliations:
-  - name: Department of Chemistry, Princeton University
-    url: https://chemistry.princeton.edu
   - name: Complex Materials Theory Group
     url: https://torquato.princeton.edu
 ids:
