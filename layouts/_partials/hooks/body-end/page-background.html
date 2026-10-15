@@ -1,0 +1,20 @@
+{{- /* Animated page background. Mounts layers into the theme's fixed #page-bg element.
+       Config: site_background in config/_default/params.yaml. Code: assets/js/bg/*.js, assets/css/custom.css.
+       Runtime overrides: ?bg=field,aurora (one-off) or ?bglab (interactive switcher, persisted in localStorage). */ -}}
+{{- $bg := site.Params.site_background | default dict -}}
+{{- $layers := $bg.layers | default (slice "field") -}}
+{{- $motion := $bg.motion | default "subtle" -}}
+{{- $interact := true -}}
+{{- if isset $bg "interact" }}{{ $interact = $bg.interact }}{{ end -}}
+{{- $js := resources.Get "js/bg/main.js" | js.Build (dict "targetPath" "js/site-bg.js" "minify" true) -}}
+{{- if hugo.IsProduction }}{{ $js = $js | fingerprint "sha256" }}{{ end -}}
+<script>
+  (function () {
+    var el = document.getElementById('page-bg');
+    if (!el) return;
+    el.dataset.bgLayers = {{ delimit $layers "," }};
+    el.dataset.bgMotion = {{ $motion }};
+    el.dataset.bgInteract = {{ printf "%v" $interact }};
+  })();
+</script>
+<script src="{{ $js.RelPermalink }}" defer{{ if hugo.IsProduction }} integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous"{{ end }}></script>

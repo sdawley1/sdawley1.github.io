@@ -356,3 +356,146 @@ html.dark .cv-accent-published {
 @media (min-width: 1280px) {
   #skills .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
+
+/* ------------------------------------------------------------------ */
+/* Page background layers (assets/js/bg/*.js mount into the theme's     */
+/* fixed #page-bg). Colours: triadic hues 215 / 335 / 95.               */
+/* ------------------------------------------------------------------ */
+:root {
+  --bg-c1: hsl(215 85% 42%);
+  --bg-c2: hsl(335 70% 46%);
+  --bg-c3: hsl(95 60% 34%);
+  --bg-field-alpha: 0.38;
+  --bg-rings-alpha: 0.5;
+  --bg-aurora-alpha: 0.16;
+}
+html.dark {
+  --bg-c1: hsl(215 90% 70%);
+  --bg-c2: hsl(335 85% 72%);
+  --bg-c3: hsl(95 55% 60%);
+  --bg-field-alpha: 0.5;
+  --bg-rings-alpha: 0.45;
+  --bg-aurora-alpha: 0.22;
+}
+#page-bg.bg-motion-lively {
+  --bg-field-alpha: 0.55;
+  --bg-rings-alpha: 0.7;
+  --bg-aurora-alpha: 0.26;
+}
+
+#page-bg { overflow: hidden; pointer-events: none; }
+
+/* Particle canvas (field / relax). Faded in the central column so body text stays clean. */
+.bg-field {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: var(--bg-field-alpha);
+  transition: opacity 1.4s ease;
+  will-change: transform;
+  -webkit-mask-image: linear-gradient(to right,
+    #000 0%, #000 calc(50% - 27rem),
+    rgb(0 0 0 / 0.45) calc(50% - 21rem), rgb(0 0 0 / 0.45) calc(50% + 21rem),
+    #000 calc(50% + 27rem), #000 100%);
+  mask-image: linear-gradient(to right,
+    #000 0%, #000 calc(50% - 27rem),
+    rgb(0 0 0 / 0.45) calc(50% - 21rem), rgb(0 0 0 / 0.45) calc(50% + 21rem),
+    #000 calc(50% + 27rem), #000 100%);
+}
+
+/* Structure-factor rings */
+.bg-rings {
+  position: absolute;
+  left: 50%;
+  top: 480px;
+  width: 1240px;
+  height: 1240px;
+  margin-top: -620px;
+  transform: translate3d(-50%, 0, 0);
+  color: var(--bg-c1);
+  opacity: var(--bg-rings-alpha);
+  animation: bg-rings-breathe 8s ease-in-out infinite;
+  will-change: transform;
+}
+.bg-rings svg { display: block; width: 100%; height: 100%; }
+.bg-rings-spin {
+  transform-origin: 0 0;
+  animation: bg-rings-spin 360s linear infinite;
+}
+.bg-rings--static, .bg-rings--static .bg-rings-spin { animation: none; }
+@keyframes bg-rings-spin { to { transform: rotate(360deg); } }
+@keyframes bg-rings-breathe { 0%, 100% { opacity: calc(var(--bg-rings-alpha) * 0.6); } 50% { opacity: var(--bg-rings-alpha); } }
+
+/* Aurora: three blurred orbs + grain */
+.bg-aurora { position: absolute; inset: 0; overflow: hidden; }
+.bg-aurora-orb {
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  min-width: 420px;
+  min-height: 420px;
+  border-radius: 999px;
+  filter: blur(80px);
+  opacity: var(--bg-aurora-alpha);
+  will-change: transform;
+}
+.bg-aurora-orb--1 { background: radial-gradient(circle, var(--bg-c1), transparent 65%); left: -15vw; top: -20vh; animation: bg-drift-1 70s ease-in-out infinite alternate; }
+.bg-aurora-orb--2 { background: radial-gradient(circle, var(--bg-c2), transparent 65%); right: -20vw; top: 15vh; animation: bg-drift-2 85s ease-in-out infinite alternate; }
+.bg-aurora-orb--3 { background: radial-gradient(circle, var(--bg-c3), transparent 65%); left: 20vw; bottom: -30vh; animation: bg-drift-3 95s ease-in-out infinite alternate; }
+@keyframes bg-drift-1 { to { transform: translate(18vw, 22vh) scale(1.15); } }
+@keyframes bg-drift-2 { to { transform: translate(-22vw, 18vh) scale(0.9); } }
+@keyframes bg-drift-3 { to { transform: translate(14vw, -24vh) scale(1.1); } }
+.bg-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 160px 160px;
+}
+html.dark .bg-grain { opacity: 0.07; mix-blend-mode: screen; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-rings, .bg-rings-spin, .bg-aurora-orb { animation: none; }
+}
+
+/* Lab switcher (only rendered with ?bglab in the URL) */
+.bg-lab {
+  position: fixed;
+  right: 1rem;
+  bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  z-index: 60;
+  width: 17rem;
+  padding: 0.85rem 1rem;
+  font-size: 0.85rem;
+  color: var(--hb-color-foreground);
+  background: var(--hb-color-background);
+  border: 1px solid color-mix(in srgb, var(--hb-color-foreground) 18%, transparent);
+  border-radius: 0.75rem;
+  box-shadow: 0 12px 32px -12px rgb(0 0 0 / 0.4);
+}
+@media (min-width: 1400px) { .bg-lab { bottom: 1rem; } }
+.bg-lab-title { font-weight: 700; margin-bottom: 0.5rem; }
+.bg-lab-group { display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; margin-bottom: 0.4rem; }
+.bg-lab-group label { display: inline-flex; align-items: center; gap: 0.3rem; cursor: pointer; }
+.bg-lab-stats { font-variant-numeric: tabular-nums; opacity: 0.7; margin: 0.3rem 0 0.5rem; }
+.bg-lab-copy {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--hb-color-foreground) 25%, transparent);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.bg-lab-copy:hover { background: color-mix(in srgb, var(--hb-color-foreground) 8%, transparent); }
+.bg-lab-yaml {
+  width: 100%;
+  margin-top: 0.5rem;
+  font: 0.72rem/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: inherit;
+  background: color-mix(in srgb, var(--hb-color-foreground) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--hb-color-foreground) 14%, transparent);
+  border-radius: 0.4rem;
+  padding: 0.4rem;
+  resize: none;
+}
