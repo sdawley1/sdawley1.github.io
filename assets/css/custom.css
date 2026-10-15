@@ -16,9 +16,9 @@ html {
 /* ------------------------------------------------------------------ */
 /* CV columns block (layouts/_partials/hbx/blocks/cv-columns/block.html) */
 /* Three timelines with a triadic accent scheme, 120° apart in hue:       */
-/*   Experience  = theme primary blue  (~212°)                           */
-/*   Education   = magenta/rose        (~332°)                           */
-/*   Published   = olive/yellow-green  (~92°)                            */
+/*   Experience  = deep blue           (~215°)                           */
+/*   Education   = magenta/rose        (~335°)                           */
+/*   Published   = dark green          (~95°)                            */
 /* ------------------------------------------------------------------ */
 .cv-columns {
   display: grid;
@@ -31,29 +31,31 @@ html {
 }
 .cv-col { display: flex; flex-direction: column; gap: 3.5rem; min-width: 0; }
 
+/* Hues 215° / 335° / 95° (120° apart). Light mode uses deep, saturated tones;
+   dark mode lightens each one just enough to keep contrast on the dark surface. */
 .cv-accent-experience {
-  --cv-accent: var(--color-primary-600, hsl(212 92% 45%));
-  --cv-accent-strong: var(--color-primary-700, hsl(212 92% 38%));
+  --cv-accent: hsl(215 85% 34%);
+  --cv-accent-strong: hsl(215 88% 26%);
 }
 .cv-accent-education {
-  --cv-accent: hsl(332 70% 44%);
-  --cv-accent-strong: hsl(332 72% 36%);
+  --cv-accent: hsl(335 70% 42%);
+  --cv-accent-strong: hsl(335 74% 33%);
 }
 .cv-accent-published {
-  --cv-accent: hsl(92 62% 33%);
-  --cv-accent-strong: hsl(92 65% 26%);
+  --cv-accent: hsl(95 62% 25%);
+  --cv-accent-strong: hsl(95 66% 19%);
 }
 html.dark .cv-accent-experience {
-  --cv-accent: var(--color-primary-400, hsl(212 100% 67%));
-  --cv-accent-strong: var(--color-primary-300, hsl(212 100% 75%));
+  --cv-accent: hsl(215 85% 64%);
+  --cv-accent-strong: hsl(215 90% 74%);
 }
 html.dark .cv-accent-education {
-  --cv-accent: hsl(332 85% 70%);
-  --cv-accent-strong: hsl(332 90% 78%);
+  --cv-accent: hsl(335 80% 68%);
+  --cv-accent-strong: hsl(335 88% 78%);
 }
 html.dark .cv-accent-published {
-  --cv-accent: hsl(92 60% 58%);
-  --cv-accent-strong: hsl(92 65% 68%);
+  --cv-accent: hsl(95 50% 50%);
+  --cv-accent-strong: hsl(95 55% 62%);
 }
 
 .cv-timeline { scroll-margin-top: 1rem; }
