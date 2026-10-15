@@ -80,7 +80,6 @@ sections:
     id: projects
     content:
       title: Projects & Software
-      text: Research code from the Princeton work is not public yet; each card says what the code does and what it changed.
       items:
         - name: Many-body simulation engine
           description: Monte Carlo and molecular dynamics for stealthy hyperuniform and related disordered systems. C/C++ with OpenMP and SIMD vectorization, CUDA kernels for the GPU path, and a JAX implementation for differentiable experiments. Runs on multi-GPU SLURM clusters and produced the data behind the *Phys. Rev. E* paper.
