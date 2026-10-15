@@ -1,0 +1,39 @@
+# Published work, newest first. Rendered by layouts/_partials/hbx/blocks/cv-columns/block.html
+# with reverse numbering (the newest item gets the highest number).
+# `authors` and `venue` are Markdown (bold your own name).
+
+publications:
+  - title: Quantification of the relaxation of nonequilibrium initial conditions of many-particle systems to their equilibrium states
+    authors: "**S. J. Dawley** and S. Torquato"
+    year: 2026
+    status: In preparation
+
+  - title: Evolution of various initial many-particle configurations to disordered stealthy hyperuniform ground states
+    authors: "**S. J. Dawley** and S. Torquato"
+    venue: "*Phys. Rev. E* **112**, 045310"
+    year: 2025
+    url: https://doi.org/10.1103/9wbz-h7t4
+    tags: [Hyperuniformity, Monte Carlo, Molecular dynamics]
+
+  - title: Blackbody thermalization and vibrational lifetimes of trapped polyatomic molecules
+    authors: "N. B. Vilas, C. Hallas, L. Anderegg, P. Robichaud, C. Zhang, **S. Dawley**, L. Cheng, and J. M. Doyle"
+    venue: "*Phys. Rev. A* **107**, 062802"
+    year: 2023
+    url: https://doi.org/10.1103/PhysRevA.107.062802
+    tags: [Coupled cluster, Molecular physics]
+
+presentations:
+  - title: Evolution of various initial many-particle configurations to disordered stealthy hyperuniform ground states
+    authors: "**S. J. Dawley** and S. Torquato"
+    venue: Princeton Materials Institute Symposium, Princeton, NJ
+    year: 2025
+
+  - title: Blackbody thermalization and vibrational lifetimes of trapped polyatomic molecules
+    authors: "**S. J. Dawley**, C. Zhang, X. Zheng, and L. Cheng"
+    venue: Talk, ACS Spring National Meeting, Indianapolis, IN
+    year: 2023
+
+  - title: Streaming by design for materials characterization
+    authors: "**S. J. Dawley**, D. Elbert, T. McQueen, and A. Mehta"
+    venue: Talk, Cornell University, Ithaca, NY
+    year: 2022
