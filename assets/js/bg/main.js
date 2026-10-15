@@ -9,6 +9,8 @@ import { createRings } from './rings.js';
 
 const LAYERS = ['field', 'relax', 'rings', 'aurora'];
 const LS_KEY = 'bg-lab';
+const MOTIONS = ['subtle', 'medium', 'lively'];
+const normMotion = (m) => (MOTIONS.includes(m) ? m : 'subtle');
 
 function createAurora(host) {
   const wrap = document.createElement('div');
@@ -29,7 +31,7 @@ function createAurora(host) {
 function parseConfig(el) {
   const cfg = {
     layers: (el.dataset.bgLayers || 'field').split(',').map((s) => s.trim()).filter((s) => LAYERS.includes(s)),
-    motion: el.dataset.bgMotion === 'lively' ? 'lively' : 'subtle',
+    motion: normMotion(el.dataset.bgMotion),
     interact: el.dataset.bgInteract !== 'false',
   };
   const q = new URLSearchParams(location.search);
@@ -39,7 +41,7 @@ function parseConfig(el) {
       const saved = JSON.parse(localStorage.getItem(LS_KEY) || 'null');
       if (saved && Array.isArray(saved.layers)) {
         cfg.layers = saved.layers.filter((s) => LAYERS.includes(s));
-        cfg.motion = saved.motion === 'lively' ? 'lively' : 'subtle';
+        cfg.motion = normMotion(saved.motion);
         cfg.interact = saved.interact !== false;
       }
     } catch (e) { /* ignore */ }
@@ -48,7 +50,7 @@ function parseConfig(el) {
     const v = q.get('bg');
     cfg.layers = v === 'none' ? [] : v.split(',').map((s) => s.trim()).filter((s) => LAYERS.includes(s));
   }
-  if (q.has('motion')) cfg.motion = q.get('motion') === 'lively' ? 'lively' : 'subtle';
+  if (q.has('motion')) cfg.motion = normMotion(q.get('motion'));
   return { cfg, lab };
 }
 
@@ -96,8 +98,7 @@ function buildLab(host, getCfg, mount, getActive) {
       ${LAYERS.map((l) => `<label><input type="checkbox" value="${l}"> ${l}</label>`).join('')}
     </div>
     <div class="bg-lab-group" data-group="motion">
-      <label><input type="radio" name="bg-motion" value="subtle"> subtle</label>
-      <label><input type="radio" name="bg-motion" value="lively"> lively</label>
+      ${MOTIONS.map((m) => `<label><input type="radio" name="bg-motion" value="${m}"> ${m}</label>`).join('')}
     </div>
     <div class="bg-lab-group" data-group="interact">
       <label><input type="checkbox" value="interact"> cursor repulsion</label>
@@ -118,7 +119,7 @@ function buildLab(host, getCfg, mount, getActive) {
   }
   function read() {
     const layers = Array.from(panel.querySelectorAll('[data-group="layers"] input:checked')).map((i) => i.value);
-    const motion = panel.querySelector('[data-group="motion"] input:checked')?.value || 'subtle';
+    const motion = normMotion(panel.querySelector('[data-group="motion"] input:checked')?.value);
     const interact = panel.querySelector('[data-group="interact"] input').checked;
     return { layers, motion, interact };
   }

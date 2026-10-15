@@ -20,7 +20,7 @@ function gauss() {
 
 export function createField(host, opts) {
   const mode = opts.mode === 'relax' ? 'relax' : 'field';
-  const lively = opts.motion === 'lively';
+  const motion = opts.motion === 'lively' ? 'lively' : opts.motion === 'medium' ? 'medium' : 'subtle';
   const reduced = !!opts.reduced;
   const interact = !!opts.interact && !reduced && window.matchMedia('(pointer: fine)').matches;
 
@@ -39,8 +39,8 @@ export function createField(host, opts) {
 
   // ---- parameters -----------------------------------------------------------
   const K_REP = 70;                                  // px/s at contact
-  const FLOW_AMP = lively ? 18 : 6;                  // px/s
-  const NOISE = lively ? 3 : 1.5;                    // px/sqrt(s)
+  const FLOW_AMP = { subtle: 6, medium: 11, lively: 18 }[motion];   // px/s
+  const NOISE = { subtle: 1.5, medium: 2.2, lively: 3 }[motion];   // px/sqrt(s)
   const CURSOR_R = 120, CURSOR_F = 110;              // px, px/s
   const MAX_DT = 1 / 30;
 

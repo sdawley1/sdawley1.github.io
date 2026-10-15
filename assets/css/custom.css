@@ -377,6 +377,11 @@ html.dark {
   --bg-rings-alpha: 0.45;
   --bg-aurora-alpha: 0.22;
 }
+#page-bg.bg-motion-medium {
+  --bg-field-alpha: 0.46;
+  --bg-rings-alpha: 0.6;
+  --bg-aurora-alpha: 0.2;
+}
 #page-bg.bg-motion-lively {
   --bg-field-alpha: 0.55;
   --bg-rings-alpha: 0.7;

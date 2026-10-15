@@ -299,10 +299,10 @@ hugoblox:
 #   relax  - lattice/gas -> relaxation -> hyperuniform cycle (canvas)
 #   rings  - structure-factor rings illustration behind the hero (SVG)
 #   aurora - drifting colour orbs in the triadic accents (CSS only)
-# motion: subtle | lively      interact: cursor repulsion on pointer devices
+# motion: subtle | medium | lively      interact: cursor repulsion on pointer devices
 # Preview and compare live: open the site with ?bglab appended to the URL.
 # ══════════════════════════════════════════════════════════════════════════════
 site_background:
   layers: ["field"]
-  motion: subtle
+  motion: medium
   interact: true
