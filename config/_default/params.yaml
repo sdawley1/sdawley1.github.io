@@ -13,19 +13,20 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   identity:
     # Site name - shown in navbar, footer, copyright, and browser title by default
-    name: "Your Name"
+    name: "Sam Dawley"
     # Legal entity for copyright notices (defaults to name if not set)
     organization: ""
     # Schema.org type for structured data
     type: person # person | organization | local_business
     # Short tagline displayed on your site
-    tagline: ""
+    tagline: "Computational scientist · statistical mechanics, scientific computing, machine learning"
     # Site meta description for search engines and social sharing
-    description: "The highly-customizable Hugo Academic theme powered by HugoBlox
-      Kit. Easily create your personal academic website."
+    description: "Sam Dawley is a Princeton chemistry Ph.D. candidate working on inverse
+      statistical mechanics, large-scale GPU simulation, statistical inference, and
+      deep learning for materials design."
     # Social accounts (used for meta tags like Twitter Cards)
     social:
-      twitter: "GoOwnable" # Twitter/X handle for Twitter Cards (without @)
+      twitter: "" # Twitter/X handle for Twitter Cards (without @)
 
   # ────────────────────────────────────────────────────────────────────────────
   # THEME
@@ -35,12 +36,14 @@ hugoblox:
     # Mode: 'light', 'dark', or 'system' (follows OS preference)
     mode: system
     # Theme pack: name from data/themes/ or { light: "x", dark: "y" } for mix-and-match
-    pack: "default"
+    pack: "minimal"
     # Optional: Override theme pack colors
     colors:
       primary: "" # Tailwind palette name or hex (e.g., "indigo" or "#6366f1")
       secondary: ""
-      neutral: "" # Affects gray utilities (text-gray-*, bg-gray-*)
+      # The "minimal" pack maps neutral to its text color, which turns dark-mode
+      # bg-gray-* surfaces light. Pin gray utilities to Tailwind slate instead.
+      neutral: "slate" # Affects gray utilities (text-gray-*, bg-gray-*)
     # Optional: Mode-specific color overrides
     colors_light: {}
     colors_dark: {}
@@ -69,7 +72,7 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   layout:
     # Border radius: 'none', 'sm', 'md', 'lg', or 'full'
-    radius: "md"
+    radius: "sm"
     # Spacing density: 'compact', 'comfortable', or 'spacious'
     spacing: "comfortable"
     # Avatar shape in author profiles
@@ -82,21 +85,21 @@ hugoblox:
   header:
     enable: true
     # Header style variant
-    style: floating-theme-toggler # navbar | navbar-simple | minimal
+    style: navbar # navbar | navbar-simple | minimal
     # Stick to top on scroll
     sticky: true
     # Menu alignment
-    align: center # left | center | right
+    align: right # left | center | right
     # Feature toggles
     search: false
     theme_toggle: true
-    theme_picker: true
-    language_switcher: true
+    theme_picker: false
+    language_switcher: false
     # Call-to-action button
     cta:
       enable: true
-      text: "Download Résumé"
-      url: "uploads/resume.pdf"
+      text: "Download CV"
+      url: "uploads/Dawley_CV.pdf"
 
   # ────────────────────────────────────────────────────────────────────────────
   # FOOTER
@@ -105,7 +108,7 @@ hugoblox:
   footer:
     # Footer style variant
     style: minimal # minimal | columns | centered
-    language_switcher: true
+    language_switcher: false
     # Custom footer text (HTML supported)
     text: ""
 
@@ -115,9 +118,9 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   copyright:
     # Copyright notice - supports {year}, {name}, {license} placeholders
-    notice: "© {year} {name}. This work is licensed under {license}"
+    notice: "© {year} {name}"
     license:
-      type: cc # cc | custom
+      type: custom # cc | custom
       allow_derivatives: false
       share_alike: true
       allow_commercial: false
@@ -128,7 +131,7 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   seo:
     # Browser tab title override (defaults to identity.name if not set)
-    title: ""
+    title: "Computational Scientist · Princeton University"
     # For local_business identity type only
     location:
       address:
@@ -146,8 +149,8 @@ hugoblox:
       allow:
         - /
       disallow: []
-      note: "Guidance for AI crawlers - customize to match your public content."
-      contact: ""
+      note: "Personal academic site of Sam Dawley (Princeton University). Public content may be summarized with attribution."
+      contact: "sd2402@princeton.edu"
 
   # ────────────────────────────────────────────────────────────────────────────
   # CONTENT
@@ -172,7 +175,7 @@ hugoblox:
   # Site search
   # ────────────────────────────────────────────────────────────────────────────
   search:
-    enable: true
+    enable: false
     # Trending/suggested search terms
     suggestions: []
     # Quick action shortcuts in search modal

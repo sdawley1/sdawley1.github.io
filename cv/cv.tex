@@ -1,0 +1,224 @@
+%-------------------------
+% Curriculum Vitae -- Samuel J. Dawley
+% Based on the Jake Gutierrez / sb2nov template (MIT); charter font, small-caps rules.
+% Build: ../cv/build.sh (tectonic). Output: static/uploads/Dawley_CV.pdf
+% Research-first ordering: Education, Research, Publications, Presentations, Grants, Honors, Teaching,
+% Mentoring & Leadership, Service, Skills.
+% Self-contained: compiles with plain pdflatex; no fontawesome5/etaremune/fullpage needed.
+%-------------------------
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage[english]{babel}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage[letterpaper, left=0.55in, right=0.55in, top=0.45in, bottom=0.55in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage[sups]{XCharter}
+% pdfTeX-only: ToUnicode mapping for ATS parsers (XeTeX/tectonic already emits Unicode)
+\ifdefined\pdfgentounicode\input{glyphtounicode}\pdfgentounicode=1\fi
+
+\pagestyle{fancy}\fancyhf{}
+\fancyfoot[L]{\small\textit{Updated October 2026}}
+\fancyfoot[C]{\small Samuel J. Dawley -- Curriculum Vitae}
+\fancyfoot[R]{\small Page \thepage}
+\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}
+\urlstyle{same}\raggedbottom\raggedright\setlength{\tabcolsep}{0in}
+\titleformat{\section}{\vspace{-4pt}\scshape\raggedright\large}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+
+\newcommand{\resumeItem}[1]{\item\small{{#1 \vspace{-1pt}}}}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-6pt}
+}
+% Second advisor line within the same institution (no bold title)
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-6pt}
+}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=0pt, topsep=2pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
+\newcommand{\resumeLineListStart}{\begin{itemize}[leftmargin=0.15in, label={}, itemsep=1pt, topsep=2pt]\small}
+\newcommand{\resumeLineListEnd}{\end{itemize}}
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Samuel J. Dawley} \\ \vspace{2pt}
+    \small Department of Chemistry, Princeton University, Princeton, NJ 08544 \\ \vspace{1pt}
+    \href{mailto:sd2402@princeton.edu}{sd2402@princeton.edu} ~\textbar~
+    \href{https://sdawley1.github.io}{sdawley1.github.io} ~\textbar~
+    \href{https://github.com/sdawley1}{github.com/sdawley1} ~\textbar~
+    ORCID \href{https://orcid.org/0009-0005-6234-476X}{0009-0005-6234-476X}
+\end{center}
+\vspace{-8pt}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Princeton University}{Sept.\ 2023 -- May 2029 (expected)}
+      {\textnormal{Ph.D. in Chemistry $\mid$ Advisor: Prof.\ Salvatore Torquato}}{Princeton, NJ}
+      \resumeItemListStart
+        \resumeItem{Ph.D. candidate -- General Examination passed May 31, 2025. Graduate Certificate in Computational Science \& Engineering.}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Johns Hopkins University}{Sept.\ 2019 -- May 2023}
+      {\textnormal{B.A. in Chemistry (Departmental Honors) and Applied Mathematics \& Statistics; Minor in Mathematics}}{Baltimore, MD}
+      \resumeItemListStart
+        \resumeItem{GPA 3.87/4.00. Graduated with General Honors; Dean's List every semester.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------RESEARCH-----------
+\section{Research Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Graduate Research Assistant, Princeton University}{Sept.\ 2023 -- Present}
+      {\textnormal{Complex Materials Theory Group $\mid$ Advisor: Prof.\ Salvatore Torquato}}{Princeton, NJ}
+      \resumeItemListStart
+        \resumeItem{Advance theory and computational methods in inverse statistical mechanics for the targeted design of materials with prescribed structure, with emphasis on disordered stealthy hyperuniform ground states.}
+        \resumeItem{Quantified how diverse initial many-particle configurations evolve to hyperuniform ground states and, separately, how nonequilibrium initial conditions relax to equilibrium, using large-scale Monte Carlo and molecular dynamics simulations on multi-GPU clusters; first-author paper in \emph{Phys.\ Rev.\ E} and a second first-author manuscript in preparation.}
+        \resumeItem{Designed and implemented scalable CPU- and GPU-parallel algorithms for many-body simulation in HPC environments (C/C++ with OpenMP and SIMD, CUDA, JAX).}
+        \resumeItem{Built a bootstrap uncertainty-quantification pipeline for relaxation times estimated from noisy simulation time series, reducing data volume and runtime by orders of magnitude while reproducing the original estimates exactly.}
+        \resumeItem{Diagnosed estimator bias and sampling artifacts in simulation output that would otherwise have distorted published results, and designed corrected analysis protocols.}
+        \resumeItem{Implemented GPU-accelerated mutual-information estimators in JAX to analyze hundreds of gigabytes of stochastic trajectory data.}
+        \resumeItem{Developed deep-learning models (neural operators, diffusion models, equivariant graph networks) in PyTorch to infer interaction potentials from structural data, benchmarking architectures across hundreds of tracked GPU runs.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Research Intern, PARADIM (NSF Materials Innovation Platform), Johns Hopkins University}{Summer 2022}
+      {\textnormal{Advisors: Dr.\ David Elbert, Prof.\ Tyrel McQueen, Dr.\ Apurva Mehta}}{Baltimore, MD}
+      \resumeItemListStart
+        \resumeItem{Advanced strategies for real-time data analysis and autonomous experimental control with machine learning, toward accelerated discovery of inorganic materials.}
+        \resumeItem{Developed a statistical-learning algorithm and its implementation for automatic signal-structure and spectral-peak detection in X-ray diffraction data.}
+        \resumeItem{Implemented live streaming of experimental data and online analysis with Apache Kafka; gained hands-on experience in inorganic synthesis and X-ray diffraction characterization.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Undergraduate Research Assistant, Johns Hopkins University}{Jan.\ 2020 -- May 2023}
+      {\textnormal{Department of Chemistry $\mid$ Advisor: Prof.\ Lan Cheng (Jan.\ 2022 -- May 2023)}}{Baltimore, MD}
+      \resumeItemListStart
+        \resumeItem{Studied relativistic effects in light- and heavy-atom molecules with coupled-cluster theory, aiming at quantitative descriptions of laser-cooled molecular and heavy-element ionic diatoms; computed vibrational lifetimes and polarizabilities.}
+        \resumeItem{Modeled blackbody-driven vibrational lifetimes of optically trapped polyatomic molecules in collaboration with the Doyle experimental group (Harvard); co-authored the resulting \emph{Phys.\ Rev.\ A} paper and presented the work at the ACS National Meeting.}
+        \resumeItem{Produced benchmark calculations assessing perturbative versus variational treatments of spin--orbit coupling in heavy-element molecules.}
+      \resumeItemListEnd
+    \resumeSubSubheading
+      {Department of Chemistry $\mid$ Advisor: Prof.\ J.\ D.\ Tovar (Jan.\ 2020 -- May 2023)}{}
+      \resumeItemListStart
+        \resumeItem{Investigated non-planar, hybrid radial--linear conjugation pathways in cycloparaphenylenes and their derivatives.}
+        \resumeItem{Computed optimized geometries and molecular-orbital energies with density-functional theory on HPC clusters; developed a Python package computing nucleus-independent chemical shifts to quantify electron delocalization, and automated Gaussian16 geometry optimizations on the Maryland Advanced Research Computing Center.}
+        \resumeItem{Synthesized novel organic compounds for cycloparaphenylene modeling and characterized them by NMR and mass spectrometry.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Research Intern, Massachusetts General Hospital}{Summer 2021}
+      {\textnormal{Division of Pulmonary and Critical Care Medicine $\mid$ Advisors: Dr.\ Tristan Kooistra, Dr.\ Benjamin Medoff}}{Boston, MA}
+      \resumeItemListStart
+        \resumeItem{Studied the response of airway epithelial cells to lung inflammation and scarring toward an improved understanding of idiopathic pulmonary fibrosis.}
+        \resumeItem{Created, maintained, and monitored tissue co-cultures grown from basal and immune cells of murine samples.}
+        \resumeItem{Developed a Python algorithm based on Delaunay triangulation to parse the spatial distribution of cultured cells and visualize inflammation patterning.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PUBLICATIONS-----------
+\section{Publications}
+ \begin{enumerate}[leftmargin=0.3in, topsep=2pt, itemsep=1pt, label={[\arabic*]}]
+    \small
+    \item \textbf{S. J. Dawley} and S. Torquato. Quantification of the relaxation of nonequilibrium initial conditions of many-particle systems to their equilibrium states. \textit{In preparation} (2026).
+    \item \textbf{S. J. Dawley} and S. Torquato. Evolution of various initial many-particle configurations to disordered stealthy hyperuniform ground states. \textit{Phys. Rev. E} \textbf{112}, 045310 (2025).
+    \item N. B. Vilas, C. Hallas, L. Anderegg, P. Robichaud, C. Zhang, \textbf{S. Dawley}, L. Cheng, and J. M. Doyle. Blackbody thermalization and vibrational lifetimes of trapped polyatomic molecules. \textit{Phys. Rev. A} \textbf{107}, 062802 (2023).
+ \end{enumerate}
+
+%-----------PRESENTATIONS-----------
+\section{Presentations}
+ \begin{enumerate}[leftmargin=0.3in, topsep=2pt, itemsep=1pt, label={[\arabic*]}]
+    \small
+    \item \textbf{S. J. Dawley} and S. Torquato. ``Evolution of various initial many-particle configurations to disordered stealthy hyperuniform ground states.'' Princeton Materials Institute Symposium, Princeton, NJ (2025).
+    \item \textbf{S. J. Dawley}, C. Zhang, X. Zheng, and L. Cheng. ``Blackbody thermalization and vibrational lifetimes of trapped polyatomic molecules.'' Talk, ACS Spring National Meeting, Indianapolis, IN (2023).
+    \item \textbf{S. J. Dawley}, D. Elbert, T. McQueen, and A. Mehta. ``Streaming by design for materials characterization.'' Talk, Cornell University, Ithaca, NY (2022).
+ \end{enumerate}
+
+%-----------GRANTS-----------
+\section{Grants \& Funding}
+\resumeLineListStart
+    \item \textbf{Life Design Lab Grant}, Johns Hopkins University (Spring 2021) -- funded summer research at Massachusetts General Hospital on idiopathic pulmonary fibrosis.
+\resumeLineListEnd
+
+%-----------HONORS-----------
+\section{Honors \& Awards}
+\resumeLineListStart
+    \item \textbf{American Chemical Society Undergraduate Award}, Maryland Section of the ACS (2023) -- recognizes outstanding achievement by chemistry students across universities in the Maryland Section.
+    \item \textbf{Departmental Honors in Chemistry}, Johns Hopkins University (2023) -- awarded for exceptional performance in both coursework and research.
+    \item \textbf{General Honors}, Johns Hopkins University (2023); \textbf{Dean's List}, all semesters (2019--2023).
+    \item \textbf{Lonergan Award}, Dover-Sherborn High School (2019) -- the school's highest award, given to the two graduating seniors who best exemplify altruism, character, dignity, integrity, and loyalty.
+\resumeLineListEnd
+
+%-----------TEACHING-----------
+\section{Teaching Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Teaching Assistant, Princeton University}{Fall 2025}
+      {\textnormal{Department of Chemistry; Program in Applied \& Computational Mathematics}}{Princeton, NJ}
+      \resumeItemListStart
+        \resumeItem{\textbf{Statistical Mechanics} (graduate) -- equilibrium and nonequilibrium thermodynamics, classical and quantum statistics, critical phenomena, and computational techniques for simulating physical systems.}
+        \resumeItem{\textbf{Software Engineering for Scientific Computing} (graduate) -- best practices for writing portable, robust code in high-performance computing environments.}
+        \resumeItem{\textbf{Calculus I} (undergraduate).}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Teaching Assistant, Johns Hopkins University}{Spring 2022 -- Summer 2023}
+      {\textnormal{Department of Applied Mathematics \& Statistics; Department of Chemistry}}{Baltimore, MD}
+      \resumeItemListStart
+        \resumeItem{\textbf{Computational Molecular Medicine} (EN.553.450/650, graduate; Spring 2023) -- machine learning, statistical inference, and multiple hypothesis testing for high-dimensional data in computational systems biology.}
+        \resumeItem{\textbf{Organic Chemistry I \& II} (AS.030.205/206) -- fundamentals of organic reactions and mechanisms with emphasis on structure, bonding, and reactivity.}
+        \resumeItem{\textbf{Intermediate Organic Chemistry Laboratory} (AS.030.228) -- advanced synthesis and characterization, emphasizing independent hypothesis development and testing.}
+        \resumeItem{\textbf{Introductory Organic Chemistry Laboratory} (AS.030.227) -- synthesis techniques and instrumentation: NMR, IR, UV-Vis, mass spectrometry, gas chromatography.}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Peer Tutor, Johns Hopkins University}{Fall 2020 -- Spring 2023}
+      {\textnormal{Office of Academic Advising}}{Baltimore, MD}
+      \resumeItemListStart
+        \resumeItem{\textbf{Head PILOT Leader} -- organized and led weekly peer-led team-learning sessions in multivariable calculus and organic chemistry; co-wrote with the course instructor the problem sets and answer keys used by all students in the course; ran midterm and final review sessions.}
+        \resumeItem{\textbf{Private Tutor} -- one-on-one tutoring in linear algebra, multivariable calculus, organic chemistry, and physical chemistry.}
+        \resumeItem{\textbf{Tutorial Project} -- individualized tutoring in math, reading, and writing for Baltimore public elementary-school students, in collaboration with their parents.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------MENTORING & LEADERSHIP-----------
+\section{Mentoring \& Leadership}
+\resumeLineListStart
+    \item \textbf{First-Year Mentor}, Johns Hopkins University (Summer 2020 -- Spring 2021) -- oriented and mentored a cohort of incoming students through their first year with year-round peer-to-peer support.
+    \item \textbf{Chemistry Student Safety Committee}, Johns Hopkins University (Fall 2021 -- Spring 2023) -- addressed safety hazards across departmental facilities and individual labs; trained in laboratory safety, management, and conduct.
+    \item \textbf{Best Buddies Club}, Johns Hopkins University (Fall 2019 -- Spring 2023) -- organized the weekly transport of the student volunteer team to the Claremont School, which serves students with moderate to profound intellectual and developmental disabilities; built friendships between Claremont and Hopkins students through sports, arts, and gardening.
+\resumeLineListEnd
+
+%-----------SERVICE-----------
+\section{Community Service}
+\resumeLineListStart
+    \item \textbf{Best Buddies International} (Spring 2019 -- Present) -- volunteer with people with intellectual and developmental disabilities at community events; fundraising through auctions, road races, and bike rides.
+    \item \textbf{Exceptional Citizens' Week}, Pembroke, MA (Summer 2015 -- Present) -- one-on-one support counselor at a week-long camp for people with intellectual and developmental disabilities; member of the team organizing meals and activities (arts and crafts, fairs, parades, theater) for the entire camp; year-round fundraising.
+\resumeLineListEnd
+
+%-----------SKILLS-----------
+\section{Technical Skills}
+\resumeLineListStart
+    \item \textbf{Programming:} Python (NumPy, SciPy, PyTorch, JAX), C/C++ (OpenMP, SIMD), CUDA, Mathematica, MATLAB, R (basic), LaTeX
+    \item \textbf{High-performance computing:} SLURM, multi-GPU clusters, FFTW, FINUFFT, Git, pytest, Weights \& Biases, Apache Kafka
+    \item \textbf{Methods:} Monte Carlo and molecular dynamics simulation, inverse statistical mechanics, numerical optimization, statistical inference and uncertainty quantification, time-series analysis, deep learning; electronic structure (coupled cluster with CFOUR, DFT with Gaussian16)
+    \item \textbf{Laboratory:} organic synthesis; NMR, IR, UV-Vis, mass spectrometry, gas chromatography, X-ray diffraction; mammalian tissue co-culture
+\resumeLineListEnd
+
+\end{document}

@@ -1,0 +1,132 @@
+%-------------------------
+% One-page résumé -- Samuel J. Dawley
+% Based on the Jake Gutierrez / sb2nov template (MIT); charter font, small-caps rules.
+% General-purpose version for the website (not tailored to a posting).
+% Build: ./build.sh (tectonic). Output: static/uploads/Dawley_Resume.pdf
+% Self-contained: compiles with plain pdflatex/tectonic; no fontawesome5/etaremune/fullpage needed.
+%-------------------------
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage[english]{babel}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage[letterpaper, left=0.45in, right=0.45in, top=0.35in, bottom=0.35in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage[sups]{XCharter}
+% pdfTeX-only: ToUnicode mapping for ATS parsers (XeTeX/tectonic already emits Unicode)
+\ifdefined\pdfgentounicode\input{glyphtounicode}\pdfgentounicode=1\fi
+
+\pagestyle{fancy}\fancyhf{}\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}
+\urlstyle{same}\raggedbottom\raggedright\setlength{\tabcolsep}{0in}
+\titleformat{\section}{\vspace{-6pt}\scshape\raggedright\large}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\newcommand{\resumeItem}[1]{\item\small{{#1 \vspace{-2pt}}}}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=0pt, topsep=2pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeLineListStart}{\begin{itemize}[leftmargin=0.15in, label={}, itemsep=0pt, topsep=2pt]\small}
+\newcommand{\resumeLineListEnd}{\end{itemize}}
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Samuel J. Dawley} \\ \vspace{2pt}
+    \small Princeton, NJ ~\textbar~
+    \href{mailto:sd2402@princeton.edu}{sd2402@princeton.edu} ~\textbar~
+    \href{https://sdawley1.github.io}{sdawley1.github.io} ~\textbar~
+    \href{https://github.com/sdawley1}{github.com/sdawley1} ~\textbar~
+    ORCID \href{https://orcid.org/0009-0005-6234-476X}{0009-0005-6234-476X}
+\end{center}
+\vspace{-10pt}
+
+%-----------SUMMARY-----------
+\section{Summary}
+\resumeLineListStart
+  \item Ph.D. candidate in computational chemistry (B.A. Applied Mathematics \& Statistics and Chemistry, GPA 3.87) working on inverse statistical mechanics, large-scale GPU simulation, statistical inference and uncertainty quantification, and deep learning for inverse problems. First-author \emph{Phys.\ Rev.\ E}. Expected graduation May 2029.
+\resumeLineListEnd
+\vspace{-6pt}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Princeton University}{2023 -- May 2029 (expected)}
+      {\textnormal{Ph.D. Candidate in Chemistry; Graduate Certificate in Computational Science \& Engineering}}{Princeton, NJ}
+    \resumeSubheading
+      {Johns Hopkins University}{2019 -- 2023}
+      {\textnormal{B.A. in Applied Mathematics \& Statistics and Chemistry (Departmental Honors); GPA 3.87}}{Baltimore, MD}
+      \resumeItemListStart
+        \resumeItem{Minor in Mathematics. \textbf{Coursework:} Probability, Statistics, Bayesian Statistics, Optimization, Linear Algebra, Differential Equations, Topology, Statistical Mechanics. \textbf{Honors:} ACS Undergraduate Award (2023); General Honors; Dean's List every semester}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\section{Research Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Graduate Research Assistant, Princeton University}{2023 -- Present}
+      {\textnormal{Complex Materials Theory Group $\mid$ Advisor: Prof.\ Salvatore Torquato}}{Princeton, NJ}
+      \resumeItemListStart
+        \resumeItem{Advance theory and computational methods in inverse statistical mechanics for targeted materials design; model how disordered many-particle systems relax to equilibrium and to stealthy hyperuniform ground states with large-scale Monte Carlo and molecular dynamics on multi-GPU clusters (first-author \emph{Phys.\ Rev.\ E}; second manuscript in preparation).}
+        \resumeItem{Designed and implemented scalable CPU- and GPU-parallel many-body simulation algorithms in HPC environments (C/C++ with OpenMP and SIMD, CUDA, JAX).}
+        \resumeItem{Built a bootstrap uncertainty-quantification pipeline for relaxation times from noisy simulation time series, cutting data volume and runtime by orders of magnitude while reproducing the original estimates exactly; diagnosed and corrected estimator bias and sampling artifacts.}
+        \resumeItem{Implemented GPU-accelerated mutual-information estimators in JAX to detect directional dependence in 100s of GB of stochastic trajectories.}
+        \resumeItem{Developed and benchmarked deep-learning models (neural operators, diffusion models, equivariant graph networks) in PyTorch to infer interaction potentials from structural data across hundreds of tracked GPU experiments.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Research Intern, PARADIM (NSF Materials Innovation Platform)}{Summer 2022}
+      {\textnormal{Advisors: Dr.\ David Elbert, Prof.\ Tyrel McQueen, Dr.\ Apurva Mehta}}{Baltimore, MD}
+      \resumeItemListStart
+        \resumeItem{Designed a statistical-learning method for automated signal detection in streaming X-ray diffraction data and built the live data-streaming pipeline (Apache Kafka) toward autonomous, real-time experimental control; presented at Cornell University.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Undergraduate Research Assistant, Johns Hopkins University}{2020 -- 2023}
+      {\textnormal{Advisors: Prof.\ Lan Cheng, Prof.\ J.\ D.\ Tovar}}{Baltimore, MD}
+      \resumeItemListStart
+        \resumeItem{Modeled vibrational lifetimes of optically trapped molecules with coupled-cluster theory in collaboration with Harvard experimentalists (co-author, \emph{Phys.\ Rev.\ A}; ACS National Meeting talk); developed a Python package quantifying electron delocalization from DFT data run on HPC clusters.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PUBLICATIONS-----------
+\section{Publications}
+ \begin{enumerate}[leftmargin=0.3in, topsep=2pt, itemsep=0pt, label={[\arabic*]}]
+    \small
+    \item \textbf{S. J. Dawley} and S. Torquato. Quantification of the relaxation of nonequilibrium initial conditions of many-particle systems to their equilibrium states. \textit{In preparation} (2026).
+    \item \textbf{S. J. Dawley} and S. Torquato. Evolution of various initial many-particle configurations to disordered stealthy hyperuniform ground states. \textit{Phys. Rev. E} \textbf{112}, 045310 (2025).
+    \item N. B. Vilas, C. Hallas, L. Anderegg, P. Robichaud, C. Zhang, \textbf{S. Dawley}, L. Cheng, and J. M. Doyle. Blackbody thermalization and vibrational lifetimes of trapped polyatomic molecules. \textit{Phys. Rev. A} \textbf{107}, 062802 (2023).
+ \end{enumerate}
+
+%-----------SKILLS-----------
+\section{Technical Skills}
+\resumeLineListStart
+    \item \textbf{Programming \& systems:} Python (NumPy, SciPy), C/C++ (OpenMP, SIMD), CUDA, MATLAB, Mathematica; Git, pytest, Kafka, SLURM, multi-GPU clusters
+    \item \textbf{Statistics \& methods:} probability, statistical inference, Bayesian statistics, Monte Carlo, stochastic processes, time series, uncertainty quantification, numerical optimization
+    \item \textbf{Machine learning:} PyTorch, JAX, deep learning (neural operators, diffusion models, graph networks), experiment tracking (Weights \& Biases)
+\resumeLineListEnd
+
+%-----------TEACHING & LEADERSHIP-----------
+\section{Communication, Teaching \& Leadership}
+\resumeLineListStart
+    \item \textbf{Presentations:} Princeton Materials Institute Symposium (2025); ACS National Meeting (2023); Cornell University (2022). \textbf{Teaching Assistant (7 courses):} graduate Statistical Mechanics, Software Engineering for Scientific Computing, Computational Molecular Medicine (ML, hypothesis testing); Calculus; Organic Chemistry.
+    \item \textbf{Leadership:} Head PILOT Leader, JHU (2020--23) -- led weekly peer-learning sessions and co-wrote the problem sets used by the whole course; First-Year Mentor (2020--21); Best Buddies volunteer and fundraiser (2019--present).
+\resumeLineListEnd
+
+\end{document}
